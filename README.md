@@ -1,2 +1,2 @@
-# matt4g.github.io
-Capstone project
+# Capstone_Project
+Senior Year Capstone Project Repository
