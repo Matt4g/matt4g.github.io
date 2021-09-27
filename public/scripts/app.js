@@ -1,8 +1,24 @@
-import { initializeApp } from 'firebase/app';
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
+  apiKey: "AIzaSyDcATcUm2h_cFc6g86AzGUHrFD_FsiJaGY",
+  authDomain: "capstone-bcd88.firebaseapp.com",
+  projectId: "capstone-bcd88",
+  storageBucket: "capstone-bcd88.appspot.com",
+  messagingSenderId: "41245952161",
+  appId: "1:41245952161:web:d7c4294d4f32c3330908e0",
+  measurementId: "G-J76FKV6C3R"
 };
 
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
 
 const canvas = document.getElementById('tetris');
