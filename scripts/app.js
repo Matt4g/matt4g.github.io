@@ -1,3 +1,10 @@
+import { initializeApp } from 'firebase/app';
+const firebaseConfig = {
+};
+
+const app = initializeApp(firebaseConfig);
+
+
 const canvas = document.getElementById('tetris');
 const context = canvas.getContext('2d');
 
