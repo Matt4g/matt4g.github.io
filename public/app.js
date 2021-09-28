@@ -186,7 +186,7 @@ player.matrix = createPiece(pieces[pieces.length * Math.random() | 0]);
     }
 }
 function NextBox() {
-createPiece(pieces[1])
+createPiece(player.matrix[1])
     context2.fillStyle = colors[value];
 }
 
@@ -310,6 +310,7 @@ document.addEventListener('keydown', event => {
         playerDropHard(1);
     }
 })
+
 playerReset();
 updateScore();
 update();
