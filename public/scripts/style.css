@@ -29,3 +29,14 @@ a{
     color: white;
     text-decoration: none;
 }
+.container {
+    border-radius: 10px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    font-size: 17pt;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+    height: auto;
+    border: 8px solid royalblue;
+  }
