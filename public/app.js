@@ -184,6 +184,7 @@ player.matrix = createPiece(pieces[pieces.length * Math.random() | 0]);
         player.score = 0;
         updateScore();
     }
+   
 }
 function NextBox() {
 createPiece(player.matrix[1])
@@ -314,3 +315,4 @@ document.addEventListener('keydown', event => {
 playerReset();
 updateScore();
 update();
+nextBox();
