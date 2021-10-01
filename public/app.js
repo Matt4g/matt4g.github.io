@@ -186,8 +186,8 @@ player.matrix = createPiece(pieces[pieces.length * Math.random() | 0]);
     }
    
 }
-function nextBox() {
-    player.matrix = createPiece(pieces[1]);
+function NextBox() {
+createPiece(player.matrix[1])
     context2.fillStyle = colors[value];
 }
 
