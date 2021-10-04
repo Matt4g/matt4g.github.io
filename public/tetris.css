@@ -18,7 +18,22 @@ body {
     background-color:royalblue;
     width: 100%;
     height: auto;
-    
-    
     font-size: 11pt;
+}
+th{
+    color: black;
+    text-align: center;
+}
+
+a:hover{
+    color: black;
+}
+
+a:active{
+    color: black;
+}
+
+a{
+    color: white;
+    text-decoration: none;
 }
