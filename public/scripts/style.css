@@ -50,6 +50,11 @@ a{
       margin-right: auto;   
   }
   #wip{
-      color: red;
+      color:royalblue;
       font-size: 50pt;
+      text-decoration: underline;
+  }
+  #wipdiv{
+      border: 8px solid royalblue;
+      background-color: #3c3c3c;
   }
