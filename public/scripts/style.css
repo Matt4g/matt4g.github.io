@@ -47,6 +47,14 @@ a{
       width: 600px;
       height: auto;
       margin-left: auto;
-      margin-right: auto;
-      
+      margin-right: auto;   
+  }
+  #wip{
+      color:royalblue;
+      font-size: 50pt;
+      text-decoration: underline;
+  }
+  #wipdiv{
+      border: 8px solid royalblue;
+      background-color: #3c3c3c;
   }
