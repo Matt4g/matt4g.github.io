@@ -391,7 +391,7 @@
 
 
     function playerReset() {
-    const pieces = 'I'
+    const pieces = 'TOLJISZ'
     player.matrix = createPiece(pieces[pieces.length * Math.random() | 0]);
         
         player.pos.y = -0;
