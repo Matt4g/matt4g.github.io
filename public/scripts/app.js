@@ -506,7 +506,7 @@
     ];
 
     const arena = createMatrix(130, 200);
-    const arena2 = createMatrix(4, 4);
+    const arena2 = createMatrix(40, 40);
 
     const player = {
         pos: {x: 0, y: 0},
