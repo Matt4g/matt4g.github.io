@@ -3,7 +3,7 @@
     const canvas2 = document.getElementById('Next')
     const context2 = canvas2.getContext('2d')
     context.scale(2, 2);
-    context2.scale(20, 20);
+    context2.scale(2, 2);
 
     function arenaSweep() {
         let rowCount = 1;
@@ -18,7 +18,7 @@
             arena.unshift(row);
             ++y;
 
-            player.score += rowCount / 100 ;
+            player.score += (rowCount / 1000000000  * 1.2) + 1;
             rowCount *= 2;
         }
     }
@@ -391,7 +391,7 @@
 
 
     function playerReset() {
-    const pieces = 'TOLJISZ'
+    const pieces = 'I'
     player.matrix = createPiece(pieces[pieces.length * Math.random() | 0]);
         
         player.pos.y = -0;
@@ -490,7 +490,7 @@
     }
 
     function updateScore() {
-        document.getElementById('score').innerText = Math.round(player.score);
+        document.getElementById('score').innerText = player.score;
     }
 
     const colors = [
