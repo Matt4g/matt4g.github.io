@@ -538,4 +538,3 @@
     playerReset();
     updateScore();
     update();
-    nextBox();
