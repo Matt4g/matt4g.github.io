@@ -490,7 +490,7 @@
     }
 
     function updateScore() {
-        document.getElementById('score').innerText = player.score;
+        document.getElementById('score').innerText = Math.round(player.score);
     }
 
     const colors = [
