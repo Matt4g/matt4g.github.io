@@ -373,6 +373,8 @@
             player.pos.y++;
         }
         player.pos.y--;
+        
+
         merge(arena, player);
         playerReset();
         arenaSweep();
@@ -469,23 +471,23 @@
         draw();
         requestAnimationFrame(update);
         
-        if(0 >= player.score < 600) {
+        if(0 >= player.score < 5400) {
             dropInterval = 300;
         }
-        else if(player.score >= 600) {
+        else if(player.score >= 10800) {
             dropInterval = 200;
         }
-        else if(player.score >= 900) {
+        else if(player.score >= 16200) {
             dropInterval = 150;
         }
-        else if(player.score >= 1200) {
+        else if(player.score >= 21600) {
             dropInterval = 100;
         }
-        else if(player.score >= 1500 ) {
-            dropInterval = 50;
+        else if(player.score >= 27000 ) {
+            dropInterval = 75;
         }
-        else if(player.score >= 2500) {
-            dropInterval = 25;
+        else if(player.score >= 32400) {
+            dropInterval = 50;
         }
     }
 
