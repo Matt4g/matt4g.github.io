@@ -51,7 +51,7 @@
         while (h--) {
             matrix2.push(new Array(w).fill(0));
         }
-        return matrix
+        return matrix2
     }
 
     function createPiece(type) {
@@ -661,8 +661,10 @@
 
     function playerReset() {
     const pieces = 'TOLJISZ'
-    player.matrix = ghostPiece(pieces[pieces.length * Math.random() | 0]);
-        
+    player.matrix = createPiece(pieces[pieces.length * Math.random() | 0]);
+    
+    player.matrix2 = ghostPiece(player.matrix)
+
         player.pos.y = -0;
         player.pos.x = (arena[0].length / 2 | 0) -
                         (player.matrix[0].length / 2 | 0);
