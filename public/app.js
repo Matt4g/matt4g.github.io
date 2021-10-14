@@ -1,3 +1,6 @@
+
+
+
     const canvas = document.getElementById('tetris');
     const context = canvas.getContext('2d');
     const canvas2 = document.getElementById('Next')
@@ -599,6 +602,7 @@
 
         drawMatrix(arena, {x: 0, y: 0});
         drawMatrix(player.matrix, player.pos);
+       // drawMatrix2(player.matrix2, player.pos);
     }
 
     function drawMatrix(matrix, offset) {
@@ -613,7 +617,19 @@
             });
         });
     }
-
+    /*function drawMatrix2(matrix2, offset) {
+        matrix.forEach((row, y) => {
+            row.forEach((value, x) => {
+                if (value !== 0) {
+                    context.fillStyle = colors[value];
+                    context.fillRect(x + offset.x,
+                                    y + offset.y, 
+                                    1, 1);
+                }
+            });
+        });
+    }
+*/
     function merge(arena, player) {
         player.matrix.forEach((row, y) =>{
             row.forEach((value, x) => {
@@ -630,6 +646,7 @@
                 player.pos.y -= 10;
                 merge(arena, player);
                 playerReset();
+                testing();
                 arenaSweep();
                 updateScore();
             }
@@ -644,6 +661,7 @@
 
         merge(arena, player);
         playerReset();
+        testing();
         arenaSweep();
         updateScore();
         dropCounter = 0;
@@ -657,13 +675,20 @@
         }
     }
 
-
+    function testing(a, b, c, d, e, f, g){
+        console.log(a);
+        console.log(b);
+}
 
     function playerReset() {
     const pieces = 'TOLJISZ'
     player.matrix = createPiece(pieces[pieces.length * Math.random() | 0]);
     
-    player.matrix2 = ghostPiece(player.matrix)
+    
+        testing.apply(null, player.matrix);
+
+    //player.matrix2 = ghostPiece(player.matrix2
+    //console.log(player.matrix2)
 
         player.pos.y = -0;
         player.pos.x = (arena[0].length / 2 | 0) -
@@ -759,7 +784,7 @@
         else if(player.score >= 32400){
             dropInterval = 25;
         }
-        console.log(dropInterval)
+        
     }
 
     function updateScore() {
@@ -807,7 +832,7 @@
             playerDropHard(1);
         }
     })
-
+    testing();
     playerReset();
     updateScore();
     update();
