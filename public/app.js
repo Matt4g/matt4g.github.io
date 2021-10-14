@@ -1,14 +1,9 @@
+    const canvas = document.getElementById('tetris')
+    const context = canvas.getContext('2d')
+    context.scale(2, 2);
+    
 
-
-
-    const canvas = document.getElementById('Next');
-    const context = canvas.getContext('2d');
-    const canvas2 = document.getElementById('tetris')
-    const context2 = canvas2.getContext('2d')
-    context.scale(5, 5);
-    context2.scale(2, 2);
-
-    /*function arenaSweep() {
+    function arenaSweep() {
         let rowCount = 1;
         outer: for (let y = arena.length - 1 ; y > 0; --y) {
             for (let x = 0; x < arena[y].length; ++x) {
@@ -25,7 +20,7 @@
             rowCount *= 2;
         }
     }
-*/
+
 
     function collide(arena, player) {
         const [m, o] = [player.matrix, player.pos]
@@ -49,13 +44,7 @@
         return matrix
     }
 
-    function createMatrix2(w, h) {
-        const matrix2 = [];
-        while (h--) {
-            matrix2.push(new Array(w).fill(0));
-        }
-        return matrix2
-    }
+    
 
     function createPiece(type) {
         if (type === 'T') {
@@ -597,15 +586,14 @@
         context.fillStyle = '#3c3c3c';
         context.fillRect(0, 0, canvas.width, canvas.height);
 
-        context2.fillStyle = '#3c3c3c';
-        context2.fillRect(0, 0, canvas2.width, canvas2.height);
+        
 
-        drawMatrix2(arena, {x: 0, y: 0});
-        drawMatrix2(player.matrix, player.pos);
+        drawMatrix(arena, {x: 0, y: 0});
+        drawMatrix(player.matrix, player.pos);
        // drawMatrix2(player.matrix2, player.pos);
     }
 
-    function drawMatrix2(matrix, offset) {
+    function drawMatrix(matrix, offset) {
         matrix.forEach((row, y) => {
             row.forEach((value, x) => {
                 if (value !== 0) {
@@ -617,19 +605,6 @@
             });
         });
     }
-    /*function drawMatrix2(matrix2, offset) {
-        matrix.forEach((row, y) => {
-            row.forEach((value, x) => {
-                if (value !== 0) {
-                    context.fillStyle = colors[value];
-                    context.fillRect(x + offset.x,
-                                    y + offset.y, 
-                                    1, 1);
-                }
-            });
-        });
-    }
-*/
     function merge(arena, player) {
         player.matrix.forEach((row, y) =>{
             row.forEach((value, x) => {
@@ -640,7 +615,7 @@
         });
     }
     
-    /*function playerDrop() {
+    function playerDrop() {
             player.pos.y += 10;
         if (collide(arena, player)) {
                 player.pos.y -= 10;
@@ -652,8 +627,8 @@
             }
             dropCounter = 0
     }
-    */
-    /*function playerDropHard() {
+    
+    function playerDropHard() {
         while (!collide(arena, player)) {
             player.pos.y++;
         }
@@ -667,7 +642,7 @@
         updateScore();
         dropCounter = 0;
     }
-*/
+
 
     function playerMove(dir) {
         player.pos.x += dir;
@@ -686,11 +661,11 @@
         
 //}
 
-    
+
     function playerReset() {
     const pieces = ['T','O','L','J','I','S', 'Z'].sort( () => .5 - Math.random() );
     player.matrix = createPiece(pieces[0]);
-    
+    player.matrix2 = player.matrix;
     
         //testing.apply(createPiece, pieces[0, 1, 2, 3, 4]);
 
@@ -763,9 +738,9 @@
         lastTime = time;
     
         dropCounter += deltaTime;
-        //if (dropCounter > dropInterval) {
-            //playerDrop();
-        //}
+        if (dropCounter > dropInterval) {
+            playerDrop();
+        }
 
         draw();
         requestAnimationFrame(update);
@@ -806,12 +781,12 @@
         'orange', 
         'blue', 
         'cyan', 
-        'green', 
+        'limegreen', 
         'red',
     ];
 
-    const arena = createMatrix(40, 40);
-    const arena2 = createMatrix(130, 200);
+    
+    const arena = createMatrix(130, 200);
 
     const player = {
         pos: {x: 0, y: 0},
@@ -826,20 +801,20 @@
         if (event.keyCode === 39) {
             playerMove(10)
         }
-        /*if (event.keyCode === 40) {
+        if (event.keyCode === 40) {
             playerDrop();
         }
-        */
+        
         if (event.keyCode === 90) {
             playerRotate(1);
         }
         if (event.keyCode === 38) {
             playerRotate(1);
         }
-       /* if (event.keyCode === 32){
+        if (event.keyCode === 32){
             playerDropHard(1);
         }
-        */
+        
     })
     //testing();
     playerReset();
