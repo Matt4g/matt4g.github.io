@@ -656,7 +656,7 @@
 
 
     function playerReset() {
-       
+    import{pieces} from './next';
     player.matrix = createPiece(pieces[1]);
     
     
