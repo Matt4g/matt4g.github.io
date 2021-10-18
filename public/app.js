@@ -2,6 +2,7 @@
     const context = canvas.getContext('2d')
     context.scale(2, 2);
     
+    
 
     function arenaSweep() {
         let rowCount = 1;
@@ -621,7 +622,6 @@
                 player.pos.y -= 10;
                 merge(arena, player);
                 playerReset();
-                //testing();
                 arenaSweep();
                 updateScore();
             }
@@ -637,7 +637,6 @@
 
         merge(arena, player);
         playerReset();
-       //testing();
         arenaSweep();
         updateScore();
         dropCounter = 0;
@@ -651,26 +650,19 @@
         }
     }
 
-    //function testing(a, b, c, d){
-      //  console.log(a)
-    //}
+    
 
-    //function testing(a, b, c, d, e, f, g, h, i, j, k ,l, m, n, o, p, q, r, s, t, u ,v, w, x, y, z, a2, b2, c2, d2, e2, f2, g2, h2, i2, j2, k2, l2, m2, n2, o2, p2){
-        //console.log(a + "\n" + b + "\n" + c + "\n" + d + "\n" + e + "\n" + f + "\n" + g + "\n" + h + "\n" + i + "\n" + j + "\n" + k + "\n" + l + "\n" + m + "\n" + n + "\n" + o + "\n" + p + "\n" + r + "\n" + q + "\n" + r + "\n" + s + "\n" + t + "\n" + u + "\n" + v + "\n" + w + "\n" + x + "\n" + y + "\n" + z + "\n" + a2 + "\n" + b2 + "\n" + c2 + "\n" + d2);
-        //console.log(e2 + "\n" + f2 + "\n" + g2 + "\n" + h2 + "\n" + i2 + "\n" + j2 + "\n" + k2 + "\n" + l2 + "\n" + m2 + "\n" + n2 + "\n" + o2 + "\n" + p2 );
-        
-//}
+    
 
 
     function playerReset() {
-    const pieces = ['T','O','L','J','I','S', 'Z'].sort( () => .5 - Math.random() );
-    player.matrix = createPiece(pieces[0]);
-    player.matrix2 = player.matrix;
+       
+    player.matrix = createPiece(pieces[1]);
     
-        //testing.apply(createPiece, pieces[0, 1, 2, 3, 4]);
+    
+        
 
-    //player.matrix2 = ghostPiece(player.matrix2
-    //console.log(player.matrix2)
+    
 
         player.pos.y = -1;
         player.pos.x = (arena[0].length / 2 | 0) -
@@ -682,11 +674,7 @@
         }
     
     }
-       /* function NextBox() {
-        createPiece(player.matrix[1])
-            context2.fillStyle = colors[value];
-        }
-        */
+       
     
 
     function playerRotate(dir) {
@@ -816,7 +804,7 @@
         }
         
     })
-    //testing();
+    
     playerReset();
     updateScore();
     update();
