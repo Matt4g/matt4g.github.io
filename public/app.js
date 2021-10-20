@@ -656,7 +656,8 @@
 
 
     function playerReset() {
-    import{pieces} from './next'
+    const { pieces } = require('./next');
+    
     player.matrix = createPiece(pieces[1]);
     
     
