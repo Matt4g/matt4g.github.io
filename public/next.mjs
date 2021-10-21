@@ -321,9 +321,7 @@ const pieces = ['T','O','L','J','I','S', 'Z'].sort( () => .5 - Math.random() );
 
 player2.matrix = createPiece(pieces[0]);
 
-module.exports = {
-    pieces,
-}
+module.exports = {pieces, }
 
     
 
