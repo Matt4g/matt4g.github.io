@@ -321,7 +321,7 @@ const pieces = ['T','O','L','J','I','S', 'Z'].sort( () => .5 - Math.random() );
 
 player2.matrix = createPiece(pieces[0]);
 
-//export default{pieces}
+//export {pieces}
 
     
 
@@ -346,7 +346,7 @@ player2.matrix = createPiece(pieces[0]);
 let lastTime2 = 0;
 function update(time = 0) {
     const deltaTime = time - lastTime2;
-    lastTime = time;
+    lastTime2 = time;
     draw();
     requestAnimationFrame(update);
     
