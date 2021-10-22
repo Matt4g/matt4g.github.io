@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "matt4g.github.io",
+			"path": ".."
+		},
+		{
+			"name": "node_modules",
+			"path": "..\\..\\..\\..\\..\\Old drive\\my-app\\node_modules"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "matt4g.github.io"
+	}
+}
