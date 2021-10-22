@@ -591,7 +591,7 @@
 
         drawMatrix(arena, {x: 0, y: 0});
         drawMatrix(player.matrix, player.pos);
-       // drawMatrix2(player.matrix2, player.pos);
+       
     }
 
     function drawMatrix(matrix, offset) {
@@ -656,8 +656,8 @@
 
 
     function playerReset() {
-    import{pieces} from './next'
-    player.matrix = createPiece(pieces[1]);
+        const pieces = ['T','O','L','J','I','S', 'Z'].sort( () => .5 - Math.random() );
+        player.matrix = createPiece(pieces[1]);
     
     
         
