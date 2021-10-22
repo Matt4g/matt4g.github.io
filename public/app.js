@@ -468,28 +468,28 @@ function update(time = 0) {
     draw();
     requestAnimationFrame(update);
     
-    if(0 >= player.score < 5400) {
+    if(player.score < 5400) {
         dropInterval = 300;
     }
-    else if(player.score >= 5400) {
+    else if(player.score >= 5400 && player.score < 10800) {
         dropInterval = 200;
     }
-    else if(player.score >= 10800) {
+    else if(player.score >= 10800 &&  player.score < 16200) {
         dropInterval = 150;
     }
-    else if(player.score >= 16200) {
+    else if(player.score >= 16200 && player.score < 21600) {
         dropInterval = 100;
     }
-    else if(player.score >= 21600 ) {
+    else if(player.score >= 21600 && player.score < 27000) {
         dropInterval = 75;
     }
-    else if(player.score >= 27000) {
+    else if(player.score >= 27000 && player.score < 32400) {
         dropInterval = 50;
     }
     else if(player.score >= 32400){
         dropInterval = 25;
     }
-    
+    console.log (dropInterval)
 }
 
 function updateScore() {
