@@ -656,8 +656,8 @@
 
 
     function playerReset() {
-        import {pieces} from "./next.mjs"
-    
+       // import {pieces} from "./next.mjs"
+       const pieces = ['T','O','L','J','I','S', 'Z'].sort( () => .5 - Math.random() );
     player.matrix = createPiece(pieces[1]);
     
     
@@ -667,7 +667,7 @@
 
         player.pos.y = -1;
         player.pos.x = (arena[0].length / 2 | 0) -
-                        (player.matrix[0].length / 2 | 0);
+                       (player.matrix[0].length / 2 | 0);
         if (collide(arena, player)) {
             arena.forEach(row => row.fill(0));
             player.score = 0;

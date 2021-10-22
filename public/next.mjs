@@ -321,16 +321,14 @@ const pieces = ['T','O','L','J','I','S', 'Z'].sort( () => .5 - Math.random() );
 
 player2.matrix = createPiece(pieces[0]);
 
-export default{pieces}
+//export default{pieces}
 
     
 
     player2.pos.y = -1;
     player2.pos.x = (arena2[0].length / 2 | 0) -
                     (player2.matrix[0].length / 2 | 0);
-    if (collide(arena2, player2)) {
-        arena2.forEach(row => row.fill(0));
-    }
+    
 
 }
    
