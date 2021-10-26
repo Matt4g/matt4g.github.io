@@ -318,9 +318,8 @@ function drawMatrix(matrix, offset) {
 
 function playerReset() {
 const pieces = ['T','O','L','J','I','S', 'Z'].sort( () => .5 - Math.random() );
-
-player2.matrix = createPiece(pieces[0]);
-
+player2.matrix = createPiece(pieces[1]);
+document.getElementById('piece').innerText = pieces;
 //export {pieces}
 
     

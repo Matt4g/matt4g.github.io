@@ -389,12 +389,14 @@ function playerMove(dir) {
     }
 }
 
+let pieces = document.getElementById('piece')
 
 
 function playerReset() {
-    //import{pieces} from "./next"
-    const pieces = ['T','O','L','J','I','S', 'Z'].sort( () => .5 - Math.random() );
-player.matrix = createPiece(pieces[1]);
+    
+    
+
+    player.matrix = createPiece(pieces[0]);
     
     player.pos.y = -0;
     player.pos.x = (arena[0].length / 2 | 0) -
