@@ -316,14 +316,19 @@ function drawMatrix(matrix, offset) {
 
 
 
- 
 
 function playerReset() {
-let pieces = ['T','O','L','J','I','S', 'Z'].sort( () => .5 - Math.random() );
+const pieces = ['T','O','L','J','I','S', 'Z'].sort( () => .5 - Math.random() );
 
 player2.matrix = createPiece(pieces[1]);
+
+
+
+
 document.getElementById('piece').innerText = pieces;
-//export {pieces}
+
+
+
 
 
     player2.pos.y = -1;
@@ -340,18 +345,17 @@ document.getElementById('piece').innerText = pieces;
 
 
 
-
-
  
 
 
 let lastTime2 = 0;
+
 function update(time = 0) {
     const deltaTime = time - lastTime2;
     lastTime2 = time;
     draw();
     requestAnimationFrame(update);
-    
+
     
     
 }

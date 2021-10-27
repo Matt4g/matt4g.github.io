@@ -354,6 +354,8 @@ function merge(arena, player) {
             }
         });
     });
+    
+
 }
 
 function playerDrop() {
@@ -396,12 +398,8 @@ function playerReset() {
     
     let pieces = document.getElementById('piece').innerText
     let new_pieces = pieces.split();
-    console.log(new_pieces)
+    
     player.matrix = createPiece(pieces[0]);
-    
-    
-    
-
     player.pos.y = -0;
     player.pos.x = (arena[0].length / 2 | 0) - (player.matrix[0].length / 2 | 0);
     if (collide(arena, player)) {
