@@ -316,13 +316,15 @@ function drawMatrix(matrix, offset) {
 
 
 
+ 
+
 function playerReset() {
-const pieces = ['T','O','L','J','I','S', 'Z'].sort( () => .5 - Math.random() );
+let pieces = ['T','O','L','J','I','S', 'Z'].sort( () => .5 - Math.random() );
+
 player2.matrix = createPiece(pieces[1]);
 document.getElementById('piece').innerText = pieces;
 //export {pieces}
 
-    
 
     player2.pos.y = -1;
     player2.pos.x = (arena2[0].length / 2 | 0) -
@@ -330,6 +332,7 @@ document.getElementById('piece').innerText = pieces;
     
 
 }
+
    
 
 
@@ -373,6 +376,6 @@ const player2 = {
     matrix: null,
     score: 0,
 }
-
 playerReset();
+
 update();

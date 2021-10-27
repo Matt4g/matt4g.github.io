@@ -389,22 +389,27 @@ function playerMove(dir) {
     }
 }
 
-let pieces = document.getElementById('piece')
+//let pieces = document.getElementById('piece')
 
 
 function playerReset() {
     
-    
-
+    let pieces = document.getElementById('piece').innerText
+    let new_pieces = pieces.split();
+    console.log(new_pieces)
     player.matrix = createPiece(pieces[0]);
     
+    
+    
+
     player.pos.y = -0;
-    player.pos.x = (arena[0].length / 2 | 0) -
-                    (player.matrix[0].length / 2 | 0);
+    player.pos.x = (arena[0].length / 2 | 0) - (player.matrix[0].length / 2 | 0);
     if (collide(arena, player)) {
         arena.forEach(row => row.fill(0));
         player.score = 0;
         updateScore();
+        
+    
     }
 
 }
