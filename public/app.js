@@ -522,6 +522,12 @@ const player = {
     matrix: null,
     score: 0,
 }
+//document.addEventListener(type, lis)
+/*
+    ALL I NEED IS A GOD DAMNED EVENT 
+    LISTENER AND I HATE MYSELF FOR NOT 
+    REALIZING IT SOONER
+*/
 
 document.addEventListener('keydown', event => {
     if (event.keyCode === 37) {
