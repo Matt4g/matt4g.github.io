@@ -316,7 +316,6 @@ function drawMatrix(matrix, offset) {
 
 
 
-
 function playerReset() {
 const pieces = ['T','O','L','J','I','S', 'Z'].sort( () => .5 - Math.random() );
 

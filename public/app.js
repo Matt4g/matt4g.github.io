@@ -397,7 +397,8 @@ function playerMove(dir) {
 function playerReset() {
     
     let pieces = document.getElementById('piece').innerText
-    let new_pieces = pieces.split();
+    //let new_pieces = pieces.split();
+    
     
     player.matrix = createPiece(pieces[0]);
     player.pos.y = -0;
