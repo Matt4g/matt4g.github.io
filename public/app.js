@@ -393,15 +393,17 @@ function playerMove(dir) {
 
 //let pieces = document.getElementById('piece')
 
+let shift = false
 
 function playerReset() {
+       
     
     let pieces = document.getElementById('piece').innerText
     //let new_pieces = pieces.split();
+    console.log(pieces);
     
-    
-    player.matrix = createPiece(pieces[0]);
-    player.pos.y = -0;
+   player.matrix = createPiece(pieces[0]);
+    player.pos.y = 0;
     player.pos.x = (arena[0].length / 2 | 0) - (player.matrix[0].length / 2 | 0);
     if (collide(arena, player)) {
         arena.forEach(row => row.fill(0));
@@ -410,9 +412,19 @@ function playerReset() {
         
     
     }
+    
+    message();
 
 }
 
+function message(){
+     shift = true
+    if(shift == true){ 
+        document.getElementById('shift').innerText = shift;
+        
+    }
+    shift = false;
+}
 
 function ghostPiece(){
     
@@ -473,6 +485,7 @@ function update(time = 0) {
 
     draw();
     requestAnimationFrame(update);
+    //console.log(shift)
     
     if(player.score < 5400) {
         dropInterval = 300;

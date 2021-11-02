@@ -314,10 +314,10 @@ function drawMatrix(matrix, offset) {
 
 
 
-
+const pieces = ['T','O','L','J','I','S', 'Z'].sort( () => .5 - Math.random() );
 
 function playerReset() {
-const pieces = ['T','O','L','J','I','S', 'Z'].sort( () => .5 - Math.random() );
+
 
 player2.matrix = createPiece(pieces[1]);
 
@@ -337,9 +337,15 @@ document.getElementById('piece').innerText = pieces;
 
 }
 
+
    
-
-
+function shiftPiece(){
+    let shiftThing = document.getElementById('shift').innerText
+    console.log(shiftThing)
+    if(shiftThing == "true"){   
+    
+}
+}
 
 
 
@@ -354,8 +360,11 @@ function update(time = 0) {
     lastTime2 = time;
     draw();
     requestAnimationFrame(update);
-
+    //shiftPiece();
+    let shiftThing = document.getElementById('shift').innerText
     
+    console.log(shiftThing)
+
     
 }
 
