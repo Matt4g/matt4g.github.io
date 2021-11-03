@@ -1,2 +1,0 @@
-import { playerReset } from "./app";
-
