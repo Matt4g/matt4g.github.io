@@ -341,7 +341,7 @@ document.getElementById('piece').innerText = pieces;
    
 function shiftPiece(){
     let shiftThing = document.getElementById('shift').innerText
-    console.log(shiftThing)
+    //console.log(shiftThing)
     if(shiftThing == "true"){   
     
 }
@@ -363,7 +363,7 @@ function update(time = 0) {
     //shiftPiece();
     let shiftThing = document.getElementById('shift').innerText
     
-    console.log(shiftThing)
+    //console.log(shiftThing)
 
     
 }
@@ -389,5 +389,4 @@ const player2 = {
     score: 0,
 }
 playerReset();
-
 update();

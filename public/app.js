@@ -400,7 +400,7 @@ function playerReset() {
     
     let pieces = document.getElementById('piece').innerText
     //let new_pieces = pieces.split();
-    console.log(pieces);
+    //console.log(pieces);
     
    player.matrix = createPiece(pieces[0]);
     player.pos.y = 0;
@@ -508,7 +508,7 @@ function update(time = 0) {
     else if(player.score >= 32400){
         dropInterval = 25;
     }
-    console.log (dropInterval)
+    //console.log (dropInterval)
 }
 
 function updateScore() {
@@ -541,6 +541,25 @@ const player = {
     LISTENER AND I HATE MYSELF FOR NOT 
     REALIZING IT SOONER
 */
+
+const times = [];
+let fps;
+
+function refreshLoop() {
+  window.requestAnimationFrame(() => {
+    const now = performance.now();
+    while (times.length > 0 && times[0] <= now - 1000) {
+      times.shift();
+    }
+    times.push(now);
+    fps = times.length;
+    refreshLoop();
+  });
+  console.log(fps)
+}
+
+refreshLoop();
+
 
 document.addEventListener('keydown', event => {
     if (event.keyCode === 37) {
