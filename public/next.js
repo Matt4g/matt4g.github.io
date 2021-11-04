@@ -347,9 +347,10 @@ function shiftPiece(){
     console.log(shiftThing)
     if(shiftThing == "true" && num == 0){   
     pieces.shift();
-    num = 1
+    num = 1;
     }
-    else if ({
+    else if(shiftThing == "true" && num !=0){
+        num = 0;
 }
 }
 
