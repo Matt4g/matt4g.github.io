@@ -364,6 +364,8 @@ function playerDrop() {
             player.pos.y -= 10;
             merge(arena, player);
             playerReset();
+            shift = "true";
+            message();
             arenaSweep();
             updateScore();
         }
@@ -374,12 +376,13 @@ function playerDropHard() {
         player.pos.y++;
     }
     player.pos.y--;
-    
-
+    shift = "true";
+    message()
     merge(arena, player);
     playerReset();
     arenaSweep();
     updateScore();
+    
     dropCounter = 0;
 }
 
@@ -393,15 +396,12 @@ function playerMove(dir) {
 
 //let pieces = document.getElementById('piece')
 
-let shift = false
+let shift = "false"
 
 function playerReset() {
        
     
     let pieces = document.getElementById('piece').innerText
-    //let new_pieces = pieces.split();
-    //console.log(pieces);
-    
    player.matrix = createPiece(pieces[0]);
     player.pos.y = 0;
     player.pos.x = (arena[0].length / 2 | 0) - (player.matrix[0].length / 2 | 0);
@@ -413,17 +413,22 @@ function playerReset() {
     
     }
     
-    message();
+    
 
 }
 
 function message(){
-     shift = true
-    if(shift == true){ 
-        document.getElementById('shift').innerText = shift;
+     
+    if(shift == "true"){ 
+        console.log(shift)
+        document.getElementById('shift').innerText = "true";
+        setTimeout(() => {shift = "false"; message();}, 100);
         
     }
-    shift = false;
+    else if (shift == "false"){
+             document.getElementById('shift').innerText = "false";
+        }
+    
 }
 
 function ghostPiece(){
@@ -477,7 +482,7 @@ let lastTime = 0;
 function update(time = 0) {
     const deltaTime = time - lastTime;
     lastTime = time;
-
+    //message();
     dropCounter += deltaTime;
     if (dropCounter > dropInterval) {
         playerDrop();
@@ -555,7 +560,7 @@ function refreshLoop() {
     fps = times.length;
     refreshLoop();
   });
-  console.log(fps)
+  //console.log(fps)
 }
 
 refreshLoop();
@@ -583,5 +588,6 @@ document.addEventListener('keydown', event => {
 })
 
 playerReset();
+message();
 updateScore();
 update();

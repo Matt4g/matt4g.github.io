@@ -314,7 +314,8 @@ function drawMatrix(matrix, offset) {
 
 
 
-const pieces = ['T','O','L','J','I','S', 'Z'].sort( () => .5 - Math.random() );
+let pieces = ['T','O','L','J','I','S', 'Z'].sort( () => .5 - Math.random() );
+
 
 function playerReset() {
 
@@ -322,9 +323,9 @@ function playerReset() {
 player2.matrix = createPiece(pieces[1]);
 
 
+next();
 
 
-document.getElementById('piece').innerText = pieces;
 
 
 
@@ -332,18 +333,23 @@ document.getElementById('piece').innerText = pieces;
 
     player2.pos.y = -1;
     player2.pos.x = (arena2[0].length / 2 | 0) -
-                    (player2.matrix[0].length / 2 | 0);
-    
-
+                    (player2.matrix[0].length / 2 | 0);    
 }
 
 
-   
+function next(){
+    document.getElementById('piece').innerText = pieces;
+}
+
+   let num = 0;
 function shiftPiece(){
     let shiftThing = document.getElementById('shift').innerText
-    //console.log(shiftThing)
-    if(shiftThing == "true"){   
-    
+    console.log(shiftThing)
+    if(shiftThing == "true" && num == 0){   
+    pieces.shift();
+    num = 1
+    }
+    else if ({
 }
 }
 
@@ -360,8 +366,9 @@ function update(time = 0) {
     lastTime2 = time;
     draw();
     requestAnimationFrame(update);
-    //shiftPiece();
+    shiftPiece();
     let shiftThing = document.getElementById('shift').innerText
+    next();
     
     //console.log(shiftThing)
 
