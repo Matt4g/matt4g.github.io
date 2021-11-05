@@ -330,7 +330,7 @@ let nextPieces;
 let pieces2;
 
 function shiftPiece(){    
-    
+    //removes pieces 
     if(shiftThing == "true" && num == 0){   
         pieces.shift();
         num = 1;
@@ -339,6 +339,7 @@ function shiftPiece(){
     else if(shiftThing == "true" && num !=0){
         num = 0;
     }   
+    //creates new pieces and adds them to the original array
     if(pieces.length == 2){
       nextPieces = (['T','O','L','J','I','S', 'Z'].sort(() => .5 - Math.random()));
       pieces2 = pieces.concat(nextPieces);

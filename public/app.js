@@ -370,11 +370,10 @@ function playerDropHard() {
     shift = "true";
     message()
     merge(arena, player);
-    setTimeout(() => {playerReset();}, 25);
     arenaSweep();
     updateScore();
-    
     dropCounter = 0;
+    setTimeout(() => {playerReset();}, 5);
 }
 
 
