@@ -22,7 +22,6 @@ function arenaSweep() {
     }
 }
 
-
 function collide(arena, player) {
     const [m, o] = [player.matrix, player.pos]
     for (let y = 0; y < m.length; ++y) {
@@ -120,8 +119,6 @@ function createPiece(type) {
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 3, 3, 3, 3, 3, 3, 3, 3, 1, 1, 3, 3, 3, 3, 3, 3, 3, 3, 1],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 3, 3, 3, 3, 3, 3, 3, 3, 1, 1, 3, 3, 3, 3, 3, 3, 3, 3, 1],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-            
-    
     ];
     } else if (type === 'L') {
         return [
@@ -242,10 +239,6 @@ function createPiece(type) {
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            
-
-            
-
         ];
     }
     else if (type === 'S') {
@@ -280,8 +273,6 @@ function createPiece(type) {
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-
-
         ];
     }
     else if (type === 'Z') {
@@ -363,7 +354,7 @@ function playerDrop() {
     if (collide(arena, player)) {
             player.pos.y -= 10;
             merge(arena, player);
-            playerReset();
+            setTimeout(() => {playerReset();}, 25);
             shift = "true";
             message();
             arenaSweep();
@@ -379,7 +370,7 @@ function playerDropHard() {
     shift = "true";
     message()
     merge(arena, player);
-    playerReset();
+    setTimeout(() => {playerReset();}, 25);
     arenaSweep();
     updateScore();
     
@@ -394,15 +385,15 @@ function playerMove(dir) {
     }
 }
 
-//let pieces = document.getElementById('piece')
+
 
 let shift = "false"
 
 function playerReset() {
        
     
-    let pieces = document.getElementById('piece').innerText
-   player.matrix = createPiece(pieces[0]);
+    let pieces = document.getElementById('piece').innerText;
+    player.matrix = createPiece(pieces[0]);
     player.pos.y = 0;
     player.pos.x = (arena[0].length / 2 | 0) - (player.matrix[0].length / 2 | 0);
     if (collide(arena, player)) {
@@ -412,18 +403,13 @@ function playerReset() {
         
     
     }
-    
-    
-
 }
 
 function message(){
-     
     if(shift == "true"){ 
-        console.log(shift)
+        console.log("shift")
         document.getElementById('shift').innerText = "true";
-        setTimeout(() => {shift = "false"; message();}, 100);
-        
+        setTimeout(() => {shift = "false"; message();}, 40);
     }
     else if (shift == "false"){
              document.getElementById('shift').innerText = "false";
@@ -449,8 +435,6 @@ function playerRotate(dir) {
         }
     }
 }
-
-
 
 function rotate(matrix, dir) {
     for (let y = 0; y < matrix.length; ++y) {
@@ -523,12 +507,12 @@ function updateScore() {
 const colors = [
     null, 
     'black',
-    'purple',
+    'darkorchid	',
     'yellow', 
     'orange', 
     'blue', 
     'cyan', 
-    'green', 
+    'limegreen', 
     'red',
 ];
 
@@ -540,31 +524,6 @@ const player = {
     matrix: null,
     score: 0,
 }
-//document.addEventListener(type, lis)
-/*
-    ALL I NEED IS A GOD DAMNED EVENT 
-    LISTENER AND I HATE MYSELF FOR NOT 
-    REALIZING IT SOONER
-*/
-
-const times = [];
-let fps;
-
-function refreshLoop() {
-  window.requestAnimationFrame(() => {
-    const now = performance.now();
-    while (times.length > 0 && times[0] <= now - 1000) {
-      times.shift();
-    }
-    times.push(now);
-    fps = times.length;
-    refreshLoop();
-  });
-  //console.log(fps)
-}
-
-refreshLoop();
-
 
 document.addEventListener('keydown', event => {
     if (event.keyCode === 37) {
