@@ -314,7 +314,8 @@ function playerReset() {
     }
 
     next();
-    setTimeout(() => {pieces.shift();}, 40);
+    setTimeout(() => {pieces.shift();console.log("shift");}, 40);
+    
     player2.pos.y = -1;
     player2.pos.x = (arena2[0].length / 2 | 0) -
                     (player2.matrix[0].length / 2 | 0);    
@@ -324,6 +325,7 @@ function playerReset() {
 function next(){
     document.getElementById('piece').innerText = pieces;
 }
+
 let shiftThing = document.getElementById('shift').innerText
 let num = 0;
 let nextPieces;
@@ -333,6 +335,7 @@ function shiftPiece(){
     //removes pieces 
     if(shiftThing == "true" && num == 0){   
         pieces.shift();
+        console.log("shift")
         num = 1;
         player2.matrix = createPiece(pieces[0]);
     }

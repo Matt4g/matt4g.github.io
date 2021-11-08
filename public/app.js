@@ -354,7 +354,7 @@ function playerDrop() {
     if (collide(arena, player)) {
             player.pos.y -= 10;
             merge(arena, player);
-            setTimeout(() => {playerReset();}, 25);
+            setTimeout(() => {playerReset();}, 5);
             shift = "true";
             message();
             arenaSweep();
