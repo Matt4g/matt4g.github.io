@@ -406,7 +406,7 @@ function playerReset() {
 
 function message(){
     if(shift == "true"){ 
-        console.log("shift")
+        
         document.getElementById('shift').innerText = "true";
         setTimeout(() => {shift = "false"; message();}, 40);
     }
@@ -473,7 +473,7 @@ function update(time = 0) {
 
     draw();
     requestAnimationFrame(update);
-    //console.log(shift)
+    
     
     if(player.score < 5400) {
         dropInterval = 300;
@@ -496,7 +496,7 @@ function update(time = 0) {
     else if(player.score >= 32400){
         dropInterval = 25;
     }
-    //console.log (dropInterval)
+    
 }
 
 function updateScore() {

@@ -309,7 +309,7 @@ function playerReset() {
         pieces2 = pieces.concat(nextPieces);
         pieces = pieces2;
           player2.matrix = createPiece(pieces[0]);
-          console.log(pieces)
+          
           
     }
 
@@ -345,7 +345,7 @@ function shiftPiece(){
       pieces2 = pieces.concat(nextPieces);
        pieces = pieces2;
        player2.matrix = createPiece(pieces[0]);
-        console.log(pieces)
+        
         
     }
 }
@@ -361,7 +361,7 @@ function update(time = 0) {
     shiftThing = document.getElementById('shift').innerText
     next();
     
-    //console.log(shiftThing)
+    
 
     
 }

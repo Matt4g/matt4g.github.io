@@ -46,6 +46,10 @@ a{
 }
 
 #piece{
-    font-size: 10px;
-    /*color:#202028 ;*/
+    font-size: .1px;
+    color:#202028 ;
+}
+#shift{
+    font-size: .1px;
+    color:#202028 ;
 }
