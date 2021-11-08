@@ -33,6 +33,7 @@ function collide(arena, player) {
                 }
         }
     }
+    
     return false;
 }
 
@@ -368,12 +369,13 @@ function playerDropHard() {
     }
     player.pos.y--;
     shift = "true";
-    message()
+    message();
+    setTimeout(() => {playerReset();}, 10);
     merge(arena, player);
     arenaSweep();
     updateScore();
     dropCounter = 0;
-    setTimeout(() => {playerReset();}, 5);
+   
 }
 
 
