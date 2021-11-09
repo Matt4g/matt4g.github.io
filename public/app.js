@@ -355,7 +355,7 @@ function playerDrop() {
     if (collide(arena, player)) {
             player.pos.y -= 10;
             merge(arena, player);
-            setTimeout(() => {playerReset();}, 5);
+            setTimeout(() => {playerReset();}, 1);
             shift = "true";
             message();
             arenaSweep();
@@ -365,12 +365,13 @@ function playerDrop() {
 }
 function playerDropHard() {
     while (!collide(arena, player)) {
-        player.pos.y++;
+       player.pos.y++;;
+        
     }
     player.pos.y--;
     shift = "true";
     message();
-    setTimeout(() => {playerReset();}, 10);
+    setTimeout(() => {playerReset();}, 1);
     merge(arena, player);
     arenaSweep();
     updateScore();
@@ -410,7 +411,7 @@ function message(){
     if(shift == "true"){ 
         
         document.getElementById('shift').innerText = "true";
-        setTimeout(() => {shift = "false"; message();}, 40);
+        setTimeout(() => {shift = "false"; message();}, 25);
     }
     else if (shift == "false"){
              document.getElementById('shift').innerText = "false";

@@ -314,7 +314,7 @@ function playerReset() {
     }
 
     next();
-    setTimeout(() => {pieces.shift();console.log("shift");}, 40);
+    setTimeout(() => {pieces.shift();console.log("shift");}, 10);
     
     player2.pos.y = -1;
     player2.pos.x = (arena2[0].length / 2 | 0) -
