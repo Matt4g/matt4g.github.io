@@ -22,7 +22,6 @@ function arenaSweep() {
     }
 }
 
-
 function collide(arena, player) {
     const [m, o] = [player.matrix, player.pos]
     for (let y = 0; y < m.length; ++y) {
@@ -34,6 +33,7 @@ function collide(arena, player) {
                 }
         }
     }
+    
     return false;
 }
 
@@ -120,8 +120,6 @@ function createPiece(type) {
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 3, 3, 3, 3, 3, 3, 3, 3, 1, 1, 3, 3, 3, 3, 3, 3, 3, 3, 1],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 3, 3, 3, 3, 3, 3, 3, 3, 1, 1, 3, 3, 3, 3, 3, 3, 3, 3, 1],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-            
-    
     ];
     } else if (type === 'L') {
         return [
@@ -242,10 +240,6 @@ function createPiece(type) {
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            
-
-            
-
         ];
     }
     else if (type === 'S') {
@@ -280,8 +274,6 @@ function createPiece(type) {
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-
-
         ];
     }
     else if (type === 'Z') {
@@ -354,6 +346,8 @@ function merge(arena, player) {
             }
         });
     });
+    
+
 }
 
 function playerDrop() {
@@ -361,7 +355,9 @@ function playerDrop() {
     if (collide(arena, player)) {
             player.pos.y -= 10;
             merge(arena, player);
-            playerReset();
+            setTimeout(() => {playerReset();}, 1);
+            shift = "true";
+            message();
             arenaSweep();
             updateScore();
         }
@@ -369,16 +365,18 @@ function playerDrop() {
 }
 function playerDropHard() {
     while (!collide(arena, player)) {
-        player.pos.y++;
+       player.pos.y++;;
+        
     }
     player.pos.y--;
-    
-
+    shift = "true";
+    message();
+    setTimeout(() => {playerReset();}, 1);
     merge(arena, player);
-    playerReset();
     arenaSweep();
     updateScore();
     dropCounter = 0;
+   
 }
 
 
@@ -391,22 +389,35 @@ function playerMove(dir) {
 
 
 
+let shift = "false"
+
 function playerReset() {
-    //import{pieces} from "./next"
-    const pieces = ['T','O','L','J','I','S', 'Z'].sort( () => .5 - Math.random() );
-player.matrix = createPiece(pieces[1]);
+       
     
-    player.pos.y = -0;
-    player.pos.x = (arena[0].length / 2 | 0) -
-                    (player.matrix[0].length / 2 | 0);
+    let pieces = document.getElementById('piece').innerText;
+    player.matrix = createPiece(pieces[0]);
+    player.pos.y = 0;
+    player.pos.x = (arena[0].length / 2 | 0) - (player.matrix[0].length / 2 | 0);
     if (collide(arena, player)) {
         arena.forEach(row => row.fill(0));
         player.score = 0;
         updateScore();
+        
+    
     }
-
 }
 
+function message(){
+    if(shift == "true"){ 
+        
+        document.getElementById('shift').innerText = "true";
+        setTimeout(() => {shift = "false"; message();}, 25);
+    }
+    else if (shift == "false"){
+             document.getElementById('shift').innerText = "false";
+        }
+    
+}
 
 function ghostPiece(){
     
@@ -426,8 +437,6 @@ function playerRotate(dir) {
         }
     }
 }
-
-
 
 function rotate(matrix, dir) {
     for (let y = 0; y < matrix.length; ++y) {
@@ -459,7 +468,7 @@ let lastTime = 0;
 function update(time = 0) {
     const deltaTime = time - lastTime;
     lastTime = time;
-
+    //message();
     dropCounter += deltaTime;
     if (dropCounter > dropInterval) {
         playerDrop();
@@ -467,6 +476,7 @@ function update(time = 0) {
 
     draw();
     requestAnimationFrame(update);
+    
     
     if(player.score < 5400) {
         dropInterval = 300;
@@ -489,7 +499,7 @@ function update(time = 0) {
     else if(player.score >= 32400){
         dropInterval = 25;
     }
-    console.log (dropInterval)
+    
 }
 
 function updateScore() {
@@ -499,12 +509,12 @@ function updateScore() {
 const colors = [
     null, 
     'black',
-    'purple',
+    'darkorchid	',
     'yellow', 
     'orange', 
     'blue', 
     'cyan', 
-    'green', 
+    'limegreen', 
     'red',
 ];
 
@@ -539,5 +549,6 @@ document.addEventListener('keydown', event => {
 })
 
 playerReset();
+message();
 updateScore();
 update();
