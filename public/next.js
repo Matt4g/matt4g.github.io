@@ -1,7 +1,7 @@
 const canvas2 = document.getElementById('Next');
 const context2 = canvas2.getContext('2d');
 
-context2.scale(5, 5);
+context2.scale(4, 4);
 
 
 function createMatrix(w, h) {
