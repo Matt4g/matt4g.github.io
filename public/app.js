@@ -636,10 +636,10 @@ function playerDrop() {
         player.pos.y += 10;
     if (collide(arena, player)) {
             player.pos.y -= 10;
-            merge(arena, player);
-            setTimeout(() => {playerReset();}, 1);
             shift = "true";
             message();
+            setTimeout(() => {playerReset();}, 15);
+            merge(arena, player);
             arenaSweep();
             updateScore();
         }
@@ -693,7 +693,9 @@ function message(){
     if(shift == "true"){ 
         
         document.getElementById('shift').innerText = "true";
-        setTimeout(() => {shift = "false"; message();}, 25);
+        
+        setTimeout(() => {shift = "false"; message();}, 20);
+        
     }
     else if (shift == "false"){
              document.getElementById('shift').innerText = "false";

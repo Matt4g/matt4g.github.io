@@ -603,7 +603,7 @@ let pieces2;
 
 function shiftPiece(){    
     //removes pieces 
-    if(shiftThing == "true" && num == 0){   
+    if(shiftThing == "true"){   
         pieces.shift();
         console.log("shift")
         num = 1;
