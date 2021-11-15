@@ -1,7 +1,7 @@
 const canvas3 = document.getElementById('hold');
 const context3 = canvas3.getContext('2d');
 
-context3.scale(5, 5);
+context3.scale(4, 4);
 
 function createMatrix(w, h) {
     const matrix = [];
@@ -280,8 +280,8 @@ function draw() {
     
     
 
-    drawMatrix(arena, {x: 0, y: 0});
-    drawMatrix(player.matrix, player.pos);
+    drawMatrix(arena3, {x: 0, y: 0});
+    drawMatrix(player3.matrix, player3.pos);
 }
 
 function drawMatrix(matrix, offset) {
@@ -297,19 +297,15 @@ function drawMatrix(matrix, offset) {
     });
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+function playerReset() {
+    const pieces = 'ILJOTSZ'
+    player3.matrix = createPiece(pieces[pieces.length * Math.random() | 0]);
+        
+        player3.pos.y = 0;
+        player3.pos.x = (arena3[0].length / 2 | 0) -
+                        (player3.matrix[0].length / 2 | 0);
+        
+    }
 
 
 
@@ -371,21 +367,28 @@ function update(time = 0) {
 const colors = [
     null, 
     'black',
-    'darkorchid	',
+    'orchid	',
     'yellow', 
     'orange', 
     'blue', 
     'cyan', 
     'limegreen', 
     'red',
+    'darkorchid	',
+    'darkyellow', 
+    'darkorange', 
+    'darkblue', 
+    'darkcyan', 
+    'darklimegreen', 
+    'darkred',
 ];
 
-const arena = createMatrix(40, 40);
+const arena3 = createMatrix(40, 40);
 
 
-const player = {
+const player3 = {
     pos: {x: 0, y: 0},
     matrix: null,
     score: 0,
 }
-
+playerReset();
