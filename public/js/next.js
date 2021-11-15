@@ -539,6 +539,7 @@ function ghostPiece(type) {
     
 }
 
+//FUCK
    
 function draw() {
     context2.fillStyle = colors2[1];
