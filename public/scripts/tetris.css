@@ -16,12 +16,12 @@ body {
     height: auto;
     width: auto;
 }
-/*#hold {
+#hold {
     border: solid .2em #fff;
     margin-bottom: 30%;
     height: auto;
     width: auto;
-}*/
+}
 #navigation{
     background-color:royalblue;
     width: 100%;
