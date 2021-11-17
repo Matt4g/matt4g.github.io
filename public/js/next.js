@@ -1,7 +1,7 @@
 const canvas2 = document.getElementById('Next');
 const context2 = canvas2.getContext('2d');
 
-context2.scale(5, 5);
+context2.scale(4, 4);
 
 
 function createMatrix(w, h) {
@@ -11,6 +11,7 @@ function createMatrix(w, h) {
     }
     return matrix
 }
+
 
 function createPiece(type) {
     if (type === 'T') {
@@ -539,7 +540,7 @@ function ghostPiece(type) {
     
 }
 
-//FUCK
+  
    
 function draw() {
     context2.fillStyle = colors2[1];

@@ -4,6 +4,7 @@ const context = canvas.getContext('2d');
 context.scale(2, 2);
 
 
+
   
 
 function arenaSweep() {
@@ -586,21 +587,7 @@ function ghostPiece(type) {
 function draw() {
     context.fillStyle = colors[1];
     context.fillRect(0, 0, canvas.width, canvas.height); 
-     /* for (var x = 0; x < 200; x += 10) {
-        context.moveTo(x, 0);
-        context.lineTo(x, 200);
-      }
-      
-      for (var y = 0; y < 200; y += 10) {
-        context.moveTo(0, y);
-        context.lineTo(150, y);
-      }
-      
-    
-      
-      
-      context.stroke();
-  */
+   
     
 
     drawMatrix(arena, {x: 0, y: 0});
@@ -638,7 +625,7 @@ function playerDrop() {
             player.pos.y -= 10;
             shift = "true";
             message();
-            setTimeout(() => {playerReset();}, 15);
+            setTimeout(() => {playerReset();}, 1);
             merge(arena, player);
             arenaSweep();
             updateScore();
@@ -648,8 +635,8 @@ function playerDrop() {
 function playerDropHard() {
     while (!collide(arena, player)) {
        player.pos.y++;;
-        
-    }
+    };
+
     player.pos.y--;
     shift = "true";
     message();
@@ -659,7 +646,7 @@ function playerDropHard() {
     updateScore();
     dropCounter = 0;
    
-}
+};
 
 
 function playerMove(dir) {
@@ -671,7 +658,7 @@ function playerMove(dir) {
 
 
 
-let shift = "false"
+
 
 function playerReset() {
        
@@ -688,13 +675,14 @@ function playerReset() {
     
     }
 }
+let shift = "false"
 
 function message(){
     if(shift == "true"){ 
         
         document.getElementById('shift').innerText = "true";
         
-        setTimeout(() => {shift = "false"; message();}, 20);
+        setTimeout(() => {shift = "false"; message();}, 25);
         
     }
     else if (shift == "false"){
@@ -807,7 +795,7 @@ const colors = [
     'darkred',
 ];
 
-const arena = createMatrix(130, 200);
+const arena = createMatrix(110, 200);
 
 
 const player = {
@@ -858,3 +846,4 @@ playerReset();
 message();
 updateScore();
 update();
+//console.log(arena)
