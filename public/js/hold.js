@@ -295,8 +295,8 @@ function drawMatrix(matrix, offset) {
 }
 
 function playerReset() {
-         let pieces = document.getElementById('piece').innerText;
-         console.log(pieces)
+    let pieces = ['T','O','L','J','I','S', 'Z'].sort( () => .5 - Math.random() );
+         
         player3.matrix = createPiece(pieces[1]);
         player3.pos.y = 0;
         player3.pos.x = (arena3[0].length / 2 | 0) -
