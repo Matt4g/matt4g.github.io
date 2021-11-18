@@ -6,7 +6,7 @@ body {
     text-align: center;
 }
 #tetris {
-    margin-left: 100px;
+    margin-left: 10px;
     border: solid .2em #fff;
     height: 86vh;
 }
@@ -18,7 +18,7 @@ body {
 }
 #hold {
     border: solid .2em #fff;
-    margin-bottom: 30%;
+    margin-bottom: 35%;
     height: auto;
     width: auto;
 }

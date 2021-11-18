@@ -1,4 +1,4 @@
-const canvas2 = document.getElementById('Next');
+const canvas2 = document.getElementById('next');
 const context2 = canvas2.getContext('2d');
 
 context2.scale(4, 4);

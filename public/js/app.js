@@ -675,7 +675,7 @@ function playerReset() {
     
     }
 }
-let shift = "false"
+let shift = "false";
 
 function message(){
     if(shift == "true"){ 
@@ -691,6 +691,19 @@ function message(){
     
 }
 
+let hold = "false";
+
+function message2(){
+    if(hold == "true"){
+        document.getElementById('help').innerText ="true";
+
+        setTimeout(() => {hold = "false"; message2();}, 25);
+    }
+
+    else if(hold=="false"){
+        document.getElementById('help').innerText="false"
+    }
+};
 
 
 function playerRotate(dir) {
@@ -804,7 +817,7 @@ const player = {
     score: 0,
 }
 
-document.addEventListener('keydown', event => {
+document.addEventListener('keydown', event => {''
     if (event.keyCode === 37) {
         playerMove(-10);
     }
@@ -822,6 +835,9 @@ document.addEventListener('keydown', event => {
     }
     if (event.keyCode === 32){
         playerDropHard(1);
+    }
+    if(event.keyCode ===  67){
+        hold = "true"
     }
 })
 

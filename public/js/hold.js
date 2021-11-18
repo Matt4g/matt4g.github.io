@@ -1,7 +1,7 @@
 const canvas3 = document.getElementById('hold');
 const context3 = canvas3.getContext('2d');
 
-context3.scale(4, 4);
+context3.scale(5, 5);
 
 function createMatrix(w, h) {
     const matrix = [];
@@ -274,8 +274,8 @@ function createPiece(type) {
 
 
 function draw() {
-    context.fillStyle = '#3c3c3c';
-    context.fillRect(0, 0, canvas.width, canvas.height);
+    context3.fillStyle = colors3[1];
+    context3.fillRect(0, 0, canvas3.width, canvas3.height);
 
     
     
@@ -288,25 +288,31 @@ function drawMatrix(matrix, offset) {
     matrix.forEach((row, y) => {
         row.forEach((value, x) => {
             if (value !== 0) {
-                context.fillStyle = colors[value];
-                context.fillRect(x + offset.x,
+                context3.fillStyle = colors3[value];
+                context3.fillRect(x + offset.x,
                                 y + offset.y, 
                                 1, 1);
             }
         });
     });
 }
-
+ const pieces = 'ILJOTSZ'
 function playerReset() {
-    const pieces = 'ILJOTSZ'
-    player3.matrix = createPiece(pieces[pieces.length * Math.random() | 0]);
-        
+   
+        let pieces = document.getElementById('held').innerText;
+        player3.matrix = createPiece(pieces[0]);
         player3.pos.y = 0;
         player3.pos.x = (arena3[0].length / 2 | 0) -
                         (player3.matrix[0].length / 2 | 0);
         
     }
 
+    let hold;
+    function HoldPiece(){
+    hold = document.getElementById('help').innerText;
+    console.log(hold);
+    
+    }
 
 
 function playerRotate(dir) {
@@ -354,11 +360,9 @@ let lastTime = 0;
 function update(time = 0) {
     const deltaTime = time - lastTime;
     lastTime = time;
-
-    dropCounter += deltaTime;
-    if (dropCounter > dropInterval) {
-        playerDrop();
-    }
+    HoldPiece();
+ 
+    
 
     draw();
     requestAnimationFrame(update);
@@ -391,4 +395,7 @@ const player3 = {
     matrix: null,
     score: 0,
 }
-playerReset();
+if(hold == "true"){
+    playerReset();
+}
+update();
