@@ -277,9 +277,6 @@ function draw() {
     context3.fillStyle = colors3[1];
     context3.fillRect(0, 0, canvas3.width, canvas3.height);
 
-    
-    
-
     drawMatrix(arena3, {x: 0, y: 0});
     drawMatrix(player3.matrix, player3.pos);
 }
@@ -296,23 +293,23 @@ function drawMatrix(matrix, offset) {
         });
     });
 }
- const pieces = 'ILJOTSZ'
+
 function playerReset() {
-   
-        let pieces = document.getElementById('held').innerText;
-        player3.matrix = createPiece(pieces[0]);
+         let pieces = document.getElementById('piece').innerText;
+         console.log(pieces)
+        player3.matrix = createPiece(pieces[1]);
         player3.pos.y = 0;
         player3.pos.x = (arena3[0].length / 2 | 0) -
-                        (player3.matrix[0].length / 2 | 0);
+                       (player3.matrix[0].length / 2 | 0);
         
     }
 
-    let hold;
-    function HoldPiece(){
-    hold = document.getElementById('help').innerText;
-    console.log(hold);
+   // let hold;
+    //function HoldPiece(){
+    //hold = document.getElementById('shift').innerText;
+  // console.log(hold)
     
-    }
+   // }
 
 
 function playerRotate(dir) {
@@ -360,7 +357,7 @@ let lastTime = 0;
 function update(time = 0) {
     const deltaTime = time - lastTime;
     lastTime = time;
-    HoldPiece();
+    //HoldPiece();
  
     
 
@@ -395,7 +392,7 @@ const player3 = {
     matrix: null,
     score: 0,
 }
-if(hold == "true"){
+
     playerReset();
-}
+
 update();

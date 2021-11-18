@@ -691,13 +691,13 @@ function message(){
     
 }
 
-let hold = "false";
-
+let hold ;
+hold = "true"
 function message2(){
     if(hold == "true"){
         document.getElementById('help').innerText ="true";
 
-        setTimeout(() => {hold = "false"; message2();}, 25);
+        setTimeout(() => {message2();}, 25);
     }
 
     else if(hold=="false"){
@@ -751,7 +751,8 @@ let lastTime = 0;
 function update(time = 0) {
     const deltaTime = time - lastTime;
     lastTime = time;
-    //message();
+    //message();  
+    
     dropCounter += deltaTime;
     if (dropCounter > dropInterval) {
         playerDrop();
@@ -837,7 +838,8 @@ document.addEventListener('keydown', event => {''
         playerDropHard(1);
     }
     if(event.keyCode ===  67){
-        hold = "true"
+      
+        
     }
 })
 
