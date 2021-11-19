@@ -690,19 +690,17 @@ function message(){
         }
     
 }
+let lastPiece;
+function playerPieces(){
 
-let hold ;
-hold = "true"
-function message2(){
-    if(hold == "true"){
+}
+function playerHold(){
+   
         document.getElementById('help').innerText ="true";
+        setTimeout(() => {document.getElementById('help').innerText="false"; }, 10);
+        
 
-        setTimeout(() => {message2();}, 25);
-    }
 
-    else if(hold=="false"){
-        document.getElementById('help').innerText="false"
-    }
 };
 
 
@@ -829,7 +827,7 @@ document.addEventListener('keydown', event => {''
         playerDrop();
     }
     if (event.keyCode === 90) {
-        playerRotate(1);
+        playerRotate(-1);
     }
     if (event.keyCode === 38) {
         playerRotate(1);
@@ -838,8 +836,8 @@ document.addEventListener('keydown', event => {''
         playerDropHard(1);
     }
     if(event.keyCode ===  67){
-      
-        
+            playerHold();
+
     }
 })
 
@@ -864,4 +862,3 @@ playerReset();
 message();
 updateScore();
 update();
-//console.log(arena)

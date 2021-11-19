@@ -47,7 +47,8 @@ function createPiece(type) {
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 2, 2, 2, 2, 2, 2, 2, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         ];
-    } else if (type === 'O') {
+    } 
+        else if (type === 'O') {
     return[
             
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -81,7 +82,8 @@ function createPiece(type) {
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 4, 4, 4, 4, 4, 4, 4, 4, 5],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5],
     ];
-    } else if (type === 'L') {
+    } 
+    else if (type === 'L') {
         return [
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 6, 6, 6, 6, 6, 6, 6, 6, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -114,7 +116,8 @@ function createPiece(type) {
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 6, 6, 6, 6, 6, 6, 6, 6, 7],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7],
         ];
-    } else if (type === 'J') {
+    }
+     else if (type === 'J') {
         return [
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 8, 8, 8, 8, 8, 8, 8, 8, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -306,7 +309,8 @@ function ghostPiece(type) {
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         ];
-    } else if (type === 'O') {
+    } 
+    else if (type === 'O') {
     return[
             
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -342,7 +346,8 @@ function ghostPiece(type) {
             
     
     ];
-    } else if (type === 'L') {
+    } 
+    else if (type === 'L') {
         return [
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -375,7 +380,8 @@ function ghostPiece(type) {
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
         ];
-    } else if (type === 'J') {
+    } 
+    else if (type === 'J') {
         return [
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -572,12 +578,9 @@ function playerReset() {
     
     if(pieces.length == 2){
         
-        nextPieces = (['T','O','L','J','I','S', 'Z'].sort(() => .5 - Math.random()));
+        nextPieces = ['T','O','L','J','I','S', 'Z'];
         pieces2 = pieces.concat(nextPieces);
         pieces = pieces2;
-          player2.matrix = createPiece(pieces[0]);
-          
-          
     }
 
     next();
@@ -587,9 +590,7 @@ function playerReset() {
     player2.pos.x = (arena2[0].length / 2 | 0) -
                     (player2.matrix[0].length / 2 | 0);    
 }
-//function ghostPiece(){
-  //  let pieces = ['T','O','L','J','I','S', 'Z'].sort( () => .5 - Math.random() );
-//}  
+
 
 
 function next(){
@@ -600,19 +601,21 @@ let shiftThing = document.getElementById('shift').innerText
 let num = 0;
 let nextPieces;
 let pieces2;
-
+let lastpiece;
 function shiftPiece(){    
-    //removes pieces 
+ 
     if(shiftThing == "true"){   
-        pieces.shift();
+        lastpiece = pieces.shift();
+        console.log (lastpiece)
         console.log("shift")
         num = 1;
         player2.matrix = createPiece(pieces[0]);
+
     }
     else if(shiftThing == "true" && num !=0){
         num = 0;
     }   
-    //creates new pieces and adds them to the original array
+   
     if(pieces.length == 2){
       nextPieces = (['T','O','L','J','I','S', 'Z'].sort(() => .5 - Math.random()));
       pieces2 = pieces.concat(nextPieces);
@@ -622,6 +625,9 @@ function shiftPiece(){
         
     }
 }
+function playerHold(){
+
+};
 
 let lastTime2 = 0;
 

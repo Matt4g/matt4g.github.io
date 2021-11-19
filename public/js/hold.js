@@ -304,12 +304,12 @@ function playerReset() {
         
     }
 
-   // let hold;
-    //function HoldPiece(){
-    //hold = document.getElementById('shift').innerText;
-  // console.log(hold)
+    let hold;
+    function playerHold(){
+    hold = document.getElementById('help').innerText;
+   console.log(hold)
     
-   // }
+    }
 
 
 function playerRotate(dir) {
@@ -357,7 +357,7 @@ let lastTime = 0;
 function update(time = 0) {
     const deltaTime = time - lastTime;
     lastTime = time;
-    //HoldPiece();
+    playerHold();
  
     
 
