@@ -1,3 +1,9 @@
+/*
+    If you are reading this I am sorry
+
+    There are no other comments in this code
+*/
+
 const canvas = document.getElementById('tetris');
 const context = canvas.getContext('2d');
 
@@ -749,7 +755,7 @@ let lastTime = 0;
 function update(time = 0) {
     const deltaTime = time - lastTime;
     lastTime = time;
-    //message();  
+   
     
     dropCounter += deltaTime;
     if (dropCounter > dropInterval) {

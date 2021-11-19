@@ -1,3 +1,9 @@
+/*
+    If you are reading this I am sorry
+
+    There are no other comments in this code
+*/
+
 const canvas2 = document.getElementById('next');
 const context2 = canvas2.getContext('2d');
 

@@ -1,3 +1,9 @@
+/*
+    If you are reading this I am sorry
+
+    There are no other comments in this code
+*/
+
 const canvas3 = document.getElementById('hold');
 const context3 = canvas3.getContext('2d');
 
