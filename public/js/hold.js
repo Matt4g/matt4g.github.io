@@ -408,6 +408,5 @@ const player3 = {
     score: 0,
 }
 
-    playerReset();
-
+playerReset();
 update();
