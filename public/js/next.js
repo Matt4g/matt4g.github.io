@@ -2,14 +2,18 @@
     If you are reading this I am sorry
 
     There are no other comments in this code
+
+    Good luck
 */
 
+//#region Setting up PlayBoard
 const canvas2 = document.getElementById('next');
 const context2 = canvas2.getContext('2d');
 
-context2.scale(4, 4);
+context2.scale(5, 5);
+//#endregion
 
-
+//#region Create Matrix
 function createMatrix(w, h) {
     const matrix = [];
     while (h--) {
@@ -18,7 +22,21 @@ function createMatrix(w, h) {
     return matrix
 }
 
+function drawMatrix(matrix, offset) {
+    matrix.forEach((row, y) => {
+        row.forEach((value, x) => {
+            if (value !== 0) {
+                context2.fillStyle = colors2[value];
+                context2.fillRect(x + offset.x,
+                                y + offset.y, 
+                                1, 1);
+            }
+        });
+    });
+}
+//#endregion
 
+//#region Piece Stuff
 function createPiece(type) {
     if (type === 'T') {
         return [
@@ -551,7 +569,7 @@ function ghostPiece(type) {
     }
     
 }
-
+//#endregion
   
    
 function draw() {
@@ -563,18 +581,7 @@ function draw() {
    
 }
 
-function drawMatrix(matrix, offset) {
-    matrix.forEach((row, y) => {
-        row.forEach((value, x) => {
-            if (value !== 0) {
-                context2.fillStyle = colors2[value];
-                context2.fillRect(x + offset.x,
-                                y + offset.y, 
-                                1, 1);
-            }
-        });
-    });
-}
+//#region Creating and Changing Pieces
 
 let pieces = ['T','O','L','J','I','S', 'Z'].sort( () => .5 - Math.random() );
 
@@ -590,7 +597,7 @@ function playerReset() {
     }
 
     next();
-    setTimeout(() => {pieces.shift();console.log("shift");}, 10);
+    setTimeout(() => {pieces.shift();}, 1);
     
     player2.pos.y = -1;
     player2.pos.x = (arena2[0].length / 2 | 0) -
@@ -608,12 +615,13 @@ let num = 0;
 let nextPieces;
 let pieces2;
 let lastpiece;
+
 function shiftPiece(){    
  
     if(shiftThing == "true"){   
         lastpiece = pieces.shift();
         console.log (lastpiece)
-        console.log("shift")
+        
         num = 1;
         player2.matrix = createPiece(pieces[0]);
 
@@ -634,7 +642,9 @@ function shiftPiece(){
 function playerHold(){
 
 };
+//#endregion
 
+//#region Update and Colors
 let lastTime2 = 0;
 
 function update(time = 0) {
@@ -669,6 +679,7 @@ const colors2 = [
     'red',
     'darkred',
 ];
+//#endregion
 
 const arena2 = createMatrix(40, 40);
 
@@ -677,5 +688,6 @@ const player2 = {
     matrix: null,
     score: 0,
 }
+
 playerReset();
 update();

@@ -2,13 +2,19 @@
     If you are reading this I am sorry
 
     There are no other comments in this code
+
+    Good luck
 */
 
+//#region Getting Stuff From HTML
 const canvas3 = document.getElementById('hold');
 const context3 = canvas3.getContext('2d');
 
 context3.scale(5, 5);
 
+//#endregion
+
+//#region  Create Matrix
 function createMatrix(w, h) {
     const matrix = [];
     while (h--) {
@@ -16,6 +22,21 @@ function createMatrix(w, h) {
     }
     return matrix
 }
+
+function drawMatrix(matrix, offset) {
+    matrix.forEach((row, y) => {
+        row.forEach((value, x) => {
+            if (value !== 0) {
+                context3.fillStyle = colors3[value];
+                context3.fillRect(x + offset.x,
+                                y + offset.y, 
+                                1, 1);
+            }
+        });
+    });
+}
+
+//#endregion
 
 function createPiece(type) {
     if (type === 'T') {
@@ -278,7 +299,6 @@ function createPiece(type) {
 }
 
 
-
 function draw() {
     context3.fillStyle = colors3[1];
     context3.fillRect(0, 0, canvas3.width, canvas3.height);
@@ -287,18 +307,7 @@ function draw() {
     drawMatrix(player3.matrix, player3.pos);
 }
 
-function drawMatrix(matrix, offset) {
-    matrix.forEach((row, y) => {
-        row.forEach((value, x) => {
-            if (value !== 0) {
-                context3.fillStyle = colors3[value];
-                context3.fillRect(x + offset.x,
-                                y + offset.y, 
-                                1, 1);
-            }
-        });
-    });
-}
+
 
 function playerReset() {
     let pieces = ['T','O','L','J','I','S', 'Z'].sort( () => .5 - Math.random() );
@@ -313,7 +322,7 @@ function playerReset() {
     let hold;
     function playerHold(){
     hold = document.getElementById('help').innerText;
-   console.log(hold)
+   //console.log(hold)
     
     }
 

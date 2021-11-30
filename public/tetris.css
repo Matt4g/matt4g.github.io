@@ -59,3 +59,6 @@ a{
     font-size: .1px;
     color:#202028 ;
 }
+body {
+    overflow: hidden; 
+  }
