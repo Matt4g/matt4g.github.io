@@ -298,33 +298,31 @@ function createPiece(type) {
     
 }
 
-
 function draw() {
     context3.fillStyle = colors3[1];
     context3.fillRect(0, 0, canvas3.width, canvas3.height);
 
     drawMatrix(arena3, {x: 0, y: 0});
-    drawMatrix(player3.matrix, player3.pos);
-}
+    drawMatrix(player.matrix, player.pos);
+};
 
-
-
+let pieces;
 function playerReset() {
-    let pieces = ['T','O','L','J','I','S', 'Z'].sort( () => .5 - Math.random() );
-         
-        player3.matrix = createPiece(pieces[1]);
-        player3.pos.y = 0;
-        player3.pos.x = (arena3[0].length / 2 | 0) -
-                       (player3.matrix[0].length / 2 | 0);
+
+    let pieces = document.getElementById('held').innerText;
+    player.matrix = createPiece(pieces[0]);
+    //console.log(pieces);
+        player.pos.y = 0;
+        player.pos.x = (arena3[0].length / 2 | 0) -
+                       (player.matrix[0].length / 2 | 0);
         
-    }
+    };
 
     let hold;
     function playerHold(){
     hold = document.getElementById('help').innerText;
-   //console.log(hold)
-    
-    }
+   console.log(hold)
+    };
 
 
 function playerRotate(dir) {
@@ -338,30 +336,30 @@ function playerRotate(dir) {
             rotate(player.matrix, -dir);
             player.pos.x = pos;
             return;
-        }
-    }
-}
+        };
+    };
+};
 
 function rotate(matrix, dir) {
     for (let y = 0; y < matrix.length; ++y) {
         for (let x = 0; x < y; ++x) {
             [
-
                 matrix[x][y],
                 matrix[y][x]
             ] = [
                 matrix[y][x],
                 matrix[x][y],
             ];
-        }
-    }
+        };
+    };
 
     if (dir > 0) {
         matrix.forEach(row => row.reverse());
-    } else {
+    } 
+    else {
         matrix.reverse();
     }
-
+;
 }
 
 let dropCounter = 0;
@@ -373,7 +371,7 @@ function update(time = 0) {
     const deltaTime = time - lastTime;
     lastTime = time;
     playerHold();
- 
+    
     
 
     draw();
@@ -402,7 +400,7 @@ const colors3 = [
 const arena3 = createMatrix(40, 40);
 
 
-const player3 = {
+const player = {
     pos: {x: 0, y: 0},
     matrix: null,
     score: 0,

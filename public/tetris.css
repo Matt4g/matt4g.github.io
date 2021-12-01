@@ -62,3 +62,11 @@ a{
 body {
     overflow: hidden; 
   }
+  #help{
+    font-size: .1px;
+    color:#202028 ;
+}
+/*#held{
+    font-size: .1px;
+    color:#202028 ;
+}*/

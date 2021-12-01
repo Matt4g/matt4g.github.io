@@ -20,8 +20,8 @@ function arenaSweep() {
         for (let x = 0; x < arena[y].length; ++x) {
             if (arena[y][x] === 0) {
                 continue outer;
-            }
-        } 
+            };
+        } ;
 
         const row = arena.splice(y, 1)[0].fill(0);
         arena.unshift(row);
@@ -29,8 +29,8 @@ function arenaSweep() {
 
         player.score += (rowCount / 1000000000  * 1.2) + 1;
         rowCount *= 2;
-    }
-}
+    };
+};
 
 function collide(arena, player) {
     const [m, o] = [player.matrix, player.pos]
@@ -40,12 +40,12 @@ function collide(arena, player) {
                 (arena[y + o.y] &&
                 arena[y + o.y][x + o.x]) !==0) {
                     return true; 
-                }
-        }
-    }
+                };
+        };
+    };
     
     return false;
-}
+};
 //#endregion
 
 //#region  Create matrix
@@ -53,17 +53,17 @@ function createMatrix(w, h) {
     const matrix = [];
     while (h--) {
         matrix.push(new Array(w).fill(0));
-    }
-    return matrix
-}
+    };
+    return matrix;
+};
 
 function createMatrix2(w, h) {
     const matrix2 = [];
     while (h--) {
         matrix2.push(new Array(w).fill(0));
-    }
-    return matrix
-}
+    };
+    return matrix;
+};
 
 function drawMatrix(matrix, offset) {
     matrix.forEach((row, y) => {
@@ -73,10 +73,10 @@ function drawMatrix(matrix, offset) {
                 context.fillRect(x + offset.x,
                                 y + offset.y, 
                                 1, 1);
-            }
+            };
         });
     });
-}
+};
 //#endregion
 
 //#region Piece Stuff
@@ -148,8 +148,9 @@ function createPiece(type) {
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 4, 4, 4, 4, 4, 4, 4, 4, 5],
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 4, 4, 4, 4, 4, 4, 4, 4, 5],
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5],
-    ];
-    } else if (type === 'L') {
+        ];
+    } 
+    else if (type === 'L') {
                 return [
                             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 6, 6, 6, 6, 6, 6, 6, 6, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -182,7 +183,8 @@ function createPiece(type) {
                             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 6, 6, 6, 6, 6, 6, 6, 6, 7],
                             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7],
         ];
-    } else if (type === 'J') {
+    }
+    else if (type === 'J') {
                  return [
                             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 8, 8, 8, 8, 8, 8, 8, 8, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -339,7 +341,7 @@ function createPiece(type) {
         ];
     }
     
-}
+};
 function ghostPiece(type) {
     if (type === 'T') {
         return [
@@ -374,8 +376,9 @@ function ghostPiece(type) {
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         ];
-    } else if (type === 'O') {
-    return[
+    } 
+    else if (type === 'O') {
+        return[
             
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -410,7 +413,8 @@ function ghostPiece(type) {
             
     
     ];
-    } else if (type === 'L') {
+    } 
+    else if (type === 'L') {
         return [
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -443,7 +447,8 @@ function ghostPiece(type) {
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
         ];
-    } else if (type === 'J') {
+    }
+     else if (type === 'J') {
         return [
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -529,10 +534,6 @@ function ghostPiece(type) {
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            
-
-            
-
         ];
     }
     else if (type === 'S') {
@@ -567,8 +568,6 @@ function ghostPiece(type) {
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-
-
         ];
     }
     else if (type === 'Z') {
@@ -605,8 +604,7 @@ function ghostPiece(type) {
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         ];
     }
-    
-}
+};
 //#endregion
 
 //#region More Stuff To Not Worry About
@@ -662,7 +660,6 @@ function playerDropHard() {
     arenaSweep();
     updateScore();
     dropCounter = 0;
-   
 };
 
 
@@ -670,8 +667,8 @@ function playerMove(dir) {
     player.pos.x += dir;
     if (collide(arena, player)) {
         player.pos.x -= dir;
-    }
-}
+    };
+};
 
 function playerRotate(dir) {
     const pos = player.pos.x;
@@ -684,9 +681,9 @@ function playerRotate(dir) {
             rotate(player.matrix, -dir);
             player.pos.x = pos;
             return;
-        }
-    }
-}
+        };
+    };
+};
 
 function rotate(matrix, dir) {
     for (let y = 0; y < matrix.length; ++y) {
@@ -699,16 +696,16 @@ function rotate(matrix, dir) {
                 matrix[y][x],
                 matrix[x][y],
             ];
-        }
-    }
+        };
+    };
 
     if (dir > 0) {
         matrix.forEach(row => row.reverse());
-    } else {
+    }
+    else {
         matrix.reverse();
     }
-
-}
+};
 //#endregion
 
 //#region Creating and Switching Pieces
@@ -724,8 +721,8 @@ function playerReset() {
         updateScore();
         
     
-    }
-}
+    };
+};
 let shift = "false";
 
 function message(){
@@ -740,15 +737,13 @@ function message(){
              document.getElementById('shift').innerText = "false";
         }
     
-}
-let lastPiece;
-function playerPieces(){
+};
 
-}
 function playerHold(){
-   
+        
         document.getElementById('help').innerText ="true";
         setTimeout(() => {document.getElementById('help').innerText="false"; }, 10);
+        
 };
 //#endregion
 
@@ -762,11 +757,10 @@ function update(time = 0) {
     const deltaTime = time - lastTime;
     lastTime = time;
    
-    
     dropCounter += deltaTime;
     if (dropCounter > dropInterval) {
         playerDrop();
-    }
+    };
 
     draw();
     requestAnimationFrame(update);
@@ -793,14 +787,13 @@ function update(time = 0) {
     else if(player.score >= 32400){
         dropInterval = 25;
     }
-    
-}
+};
 //#endregion
 
 //#region Score and Colors
 function updateScore() {
     document.getElementById('score').innerText = Math.round(player.score);
-}
+};
 
 const colors = [
     null, 
@@ -828,7 +821,7 @@ const player = {
     pos: {x: 0, y: 0},
     matrix: null,
     score: 0,
-}
+};
 
 //#region Move Keys and Fps Counter
 document.addEventListener('keydown', event => {''
@@ -854,7 +847,7 @@ document.addEventListener('keydown', event => {''
             playerHold();
 
     }
-})
+});
 
 const times = [];
 let fps;
@@ -864,12 +857,12 @@ function refreshLoop() {
     const now = performance.now();
     while (times.length > 0 && times[0] <= now - 1000) {
       times.shift();
-    }
+    };
     times.push(now);
     fps = times.length;
     refreshLoop();
   });
-}
+};
 //#endregion
 
 refreshLoop();

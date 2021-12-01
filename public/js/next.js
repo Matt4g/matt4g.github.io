@@ -18,9 +18,9 @@ function createMatrix(w, h) {
     const matrix = [];
     while (h--) {
         matrix.push(new Array(w).fill(0));
-    }
-    return matrix
-}
+    };
+    return matrix;
+};
 
 function drawMatrix(matrix, offset) {
     matrix.forEach((row, y) => {
@@ -33,7 +33,7 @@ function drawMatrix(matrix, offset) {
             }
         });
     });
-}
+};
 //#endregion
 
 //#region Piece Stuff
@@ -73,7 +73,7 @@ function createPiece(type) {
         ];
     } 
         else if (type === 'O') {
-    return[
+             return[
             
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -298,7 +298,7 @@ function createPiece(type) {
         ];
     }
     
-}
+};
 function ghostPiece(type) {
     if (type === 'T') {
         return [
@@ -335,8 +335,7 @@ function ghostPiece(type) {
         ];
     } 
     else if (type === 'O') {
-    return[
-            
+        return[
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -567,8 +566,7 @@ function ghostPiece(type) {
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         ];
     }
-    
-}
+};
 //#endregion
   
    
@@ -579,14 +577,14 @@ function draw() {
     drawMatrix(arena2, {x: 0, y: 0});
     drawMatrix(player2.matrix, player2.pos);
    
-}
+};
 
 //#region Creating and Changing Pieces
 
 let pieces = ['T','O','L','J','I','S', 'Z'].sort( () => .5 - Math.random() );
 
 function playerReset() {
-
+    document.getElementById('held').innerText = pieces[0];
     player2.matrix = createPiece(pieces[1]);
     
     if(pieces.length == 2){
@@ -594,7 +592,7 @@ function playerReset() {
         nextPieces = ['T','O','L','J','I','S', 'Z'];
         pieces2 = pieces.concat(nextPieces);
         pieces = pieces2;
-    }
+    };
 
     next();
     setTimeout(() => {pieces.shift();}, 1);
@@ -602,15 +600,15 @@ function playerReset() {
     player2.pos.y = -1;
     player2.pos.x = (arena2[0].length / 2 | 0) -
                     (player2.matrix[0].length / 2 | 0);    
-}
+};
 
 
 
 function next(){
     document.getElementById('piece').innerText = pieces;
-}
+};
 
-let shiftThing = document.getElementById('shift').innerText
+let shiftThing = document.getElementById('shift').innerText;
 let num = 0;
 let nextPieces;
 let pieces2;
@@ -620,7 +618,8 @@ function shiftPiece(){
  
     if(shiftThing == "true"){   
         lastpiece = pieces.shift();
-        console.log (lastpiece)
+        document.getElementById('held').innerText = lastpiece;
+        console.log (lastpiece);
         
         num = 1;
         player2.matrix = createPiece(pieces[0]);
@@ -635,7 +634,6 @@ function shiftPiece(){
       pieces2 = pieces.concat(nextPieces);
        pieces = pieces2;
        player2.matrix = createPiece(pieces[0]);
-        
         
     }
 }
@@ -655,11 +653,7 @@ function update(time = 0) {
     shiftPiece();
     shiftThing = document.getElementById('shift').innerText
     next();
-    
-    
-
-    
-}
+};
 
 const colors2 = [
     null, 
@@ -687,7 +681,7 @@ const player2 = {
     pos: {x: 0, y: 0},
     matrix: null,
     score: 0,
-}
+};
 
 playerReset();
 update();
