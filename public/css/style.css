@@ -51,7 +51,7 @@ a{
   }
   #wip{
       color:royalblue;
-      font-size: 50pt;
+      font-size: 25pt;
       text-decoration: underline;
   }
   #wipdiv{
@@ -59,7 +59,7 @@ a{
       background-color: #3c3c3c3c;
   }
   #quiz{
-    font-size: 25pt;
+    font-size: 14pt;
 }
 #q1{
   text-decoration: underline;
