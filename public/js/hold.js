@@ -1,11 +1,7 @@
-const canvas2 = document.getElementById('Next');
-const context2 = canvas2.getContext('2d');
-context2.scale(5, 5);
+const canvas3 = document.getElementById('hold');
+const context3 = canvas3.getContext('2d');
 
-
-
-
-
+context3.scale(4, 4);
 
 function createMatrix(w, h) {
     const matrix = [];
@@ -14,8 +10,6 @@ function createMatrix(w, h) {
     }
     return matrix
 }
-
-
 
 function createPiece(type) {
     if (type === 'T') {
@@ -84,8 +78,6 @@ function createPiece(type) {
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 3, 3, 3, 3, 3, 3, 3, 3, 1, 1, 3, 3, 3, 3, 3, 3, 3, 3, 1],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 3, 3, 3, 3, 3, 3, 3, 3, 1, 1, 3, 3, 3, 3, 3, 3, 3, 3, 1],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-            
-    
     ];
     } else if (type === 'L') {
         return [
@@ -206,10 +198,6 @@ function createPiece(type) {
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            
-
-            
-
         ];
     }
     else if (type === 'S') {
@@ -244,8 +232,6 @@ function createPiece(type) {
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-
-
         ];
     }
     else if (type === 'Z') {
@@ -285,25 +271,25 @@ function createPiece(type) {
     
 }
 
-   
+
 
 function draw() {
-    context2.fillStyle = '#3c3c3c';
-    context2.fillRect(0, 0, canvas2.width, canvas2.height);
+    context.fillStyle = '#3c3c3c';
+    context.fillRect(0, 0, canvas.width, canvas.height);
 
     
+    
 
-    drawMatrix(arena2, {x: 0, y: 0});
-    drawMatrix(player2.matrix, player2.pos);
-   
+    drawMatrix(arena3, {x: 0, y: 0});
+    drawMatrix(player3.matrix, player3.pos);
 }
 
 function drawMatrix(matrix, offset) {
     matrix.forEach((row, y) => {
         row.forEach((value, x) => {
             if (value !== 0) {
-                context2.fillStyle = colors2[value];
-                context2.fillRect(x + offset.x,
+                context.fillStyle = colors[value];
+                context.fillRect(x + offset.x,
                                 y + offset.y, 
                                 1, 1);
             }
@@ -311,69 +297,98 @@ function drawMatrix(matrix, offset) {
     });
 }
 
-
-
-
-
-
 function playerReset() {
-const pieces = ['T','O','L','J','I','S', 'Z'].sort( () => .5 - Math.random() );
+    const pieces = 'ILJOTSZ'
+    player3.matrix = createPiece(pieces[pieces.length * Math.random() | 0]);
+        
+        player3.pos.y = 0;
+        player3.pos.x = (arena3[0].length / 2 | 0) -
+                        (player3.matrix[0].length / 2 | 0);
+        
+    }
 
-player2.matrix = createPiece(pieces[0]);
 
-//export {pieces}
 
-    
+function playerRotate(dir) {
+    const pos = player.pos.x;
+    let offset = 1;
+    rotate(player.matrix, dir);
+    while (collide(arena, player)) {
+        player.pos.x += offset;
+        offset = -(offset + (offset > 0 ? 1: -1))
+        if (offset > player.matrix[0].length) {
+            rotate(player.matrix, -dir);
+            player.pos.x = pos;
+            return;
+        }
+    }
+}
 
-    player2.pos.y = -1;
-    player2.pos.x = (arena2[0].length / 2 | 0) -
-                    (player2.matrix[0].length / 2 | 0);
-    
+function rotate(matrix, dir) {
+    for (let y = 0; y < matrix.length; ++y) {
+        for (let x = 0; x < y; ++x) {
+            [
+
+                matrix[x][y],
+                matrix[y][x]
+            ] = [
+                matrix[y][x],
+                matrix[x][y],
+            ];
+        }
+    }
+
+    if (dir > 0) {
+        matrix.forEach(row => row.reverse());
+    } else {
+        matrix.reverse();
+    }
 
 }
-   
+
+let dropCounter = 0;
+let dropInterval = 400;
 
 
-
-
-
-
-
-
- 
-
-
-let lastTime2 = 0;
+let lastTime = 0;
 function update(time = 0) {
-    const deltaTime = time - lastTime2;
-    lastTime2 = time;
+    const deltaTime = time - lastTime;
+    lastTime = time;
+
+    dropCounter += deltaTime;
+    if (dropCounter > dropInterval) {
+        playerDrop();
+    }
+
     draw();
     requestAnimationFrame(update);
-    
-    
-    
-}
 
-const colors2 = [
+}
+const colors = [
     null, 
     'black',
-    'purple',
+    'orchid	',
     'yellow', 
     'orange', 
     'blue', 
     'cyan', 
     'limegreen', 
     'red',
+    'darkorchid	',
+    'darkyellow', 
+    'darkorange', 
+    'darkblue', 
+    'darkcyan', 
+    'darklimegreen', 
+    'darkred',
 ];
 
-const arena2 = createMatrix(40, 40);
+const arena3 = createMatrix(40, 40);
 
 
-const player2 = {
+const player3 = {
     pos: {x: 0, y: 0},
     matrix: null,
     score: 0,
 }
-
 playerReset();
-update();

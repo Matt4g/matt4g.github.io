@@ -1,9 +1,8 @@
 <html>
-    <head>
-        <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-
+    <head>        
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
         <title>Tetris</title>
-        <link rel="stylesheet" href="scripts/tetris.css">
+        <link rel="stylesheet" href="tetris.css">
         <nav>
             <table id="navigation">
                 <th><a href=index.html class="nav">
@@ -18,11 +17,15 @@
     <body>
 
         <div id="score"></div>
+        <div id="piece"></div>
+        <div id="shift"></div>
+        <canvas id="hold" width=" 200px" height="200px"></canvas>
         <canvas id="tetris" width="260" height="400"></canvas>
         <canvas id="Next" width="200px" height="200px"></canvas>
-        <!--<script type="module" src="next.js"></script>-->
-        <script type="module"  src="app.js"></script>
-
+        
+        <script type="module" src="js/hold.js"></script>
+       <script type="module" src="js/next.js"></script>
+        <script type="module"  src="js/app.js"></script>
         
     </body>
 </html>
