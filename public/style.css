@@ -58,4 +58,21 @@ a{
       border: 8px solid royalblue;
       background-color: #3c3c3c3c;
   }
-  
+  #quiz{
+      font-size: 25pt;
+  }
+#q1{
+    text-decoration: underline;
+}
+#q{
+    border: 2px solid black ;
+    width: 10%;
+    height: auto;
+    margin-left: 25px;
+    
+}
+input[type=radio] {
+    border: 0px;
+    width: 10%;
+    height: 2em;
+}
