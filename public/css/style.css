@@ -1,78 +1,110 @@
 body{
-    background-color: #3c3c3c;
+  background-color: #3c3c3c;
 }
 #navigation{
-    background-color:royalblue;
-    width: 100%;
-    height: 5px;
-    
-    padding-top: 7px;
-    padding-bottom: 7px;
-    font-size: 5;
+  background-color:royalblue;
+  width: 100%;
+  height: 5px;
+  
+  padding-top: 7px;
+  padding-bottom: 7px;
+  font-size: 5;
 }
 th{
-    color: black;
-    padding: 10px;
-    text-align: center;
+  color: black;
+  padding: 10px;
+  text-align: center;
 }
 
 a:hover{
-    color: black;
+  color: black;
 }
 
 a:active{
-    color: black;
+  color: black;
 }
 
 a{
-    font-size: 25px;
-    color: white;
-    text-decoration: none;
+  font-size: 25px;
+  color: white;
+  text-decoration: none;
 }
 .container {
-    border-radius: 10px;
-    background-color: #f2f2f2;
-    padding: 20px;
-    font-size: 17pt;
-    margin-left: auto;
-    margin-right: auto;
-    width: 85%;
+  border-radius: 10px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  font-size: 17pt;
+  margin-left: auto;
+  margin-right: auto;
+  width: 85%;
+  height: auto;
+  border: 8px solid royalblue;
+}
+h1{
+    text-align: center;
+}
+#middle{
+    width: 600px;
     height: auto;
-    border: 8px solid royalblue;
-  }
-  h1{
-      text-align: center;
-  }
-  #middle{
-      width: 600px;
-      height: auto;
-      margin-left: auto;
-      margin-right: auto;   
-  }
-  #wip{
-      color:royalblue;
-      font-size: 50pt;
-      text-decoration: underline;
-  }
-  #wipdiv{
-      border: 8px solid royalblue;
-      background-color: #3c3c3c3c;
-  }
-  #quiz{
-      font-size: 25pt;
-  }
-#q1{
+    margin-left: auto;
+    margin-right: auto;   
+}
+#wip{
+    color:royalblue;
+    font-size: 50pt;
     text-decoration: underline;
 }
+#wipdiv{
+    border: 8px solid royalblue;
+    background-color: #3c3c3c3c;
+}
+#multi{
+  font-size: 14pt;
+}
+#q1{
+text-decoration: underline;
+}
+#q2{
+text-decoration: underline;
+}
+#q3{
+  text-decoration: underline;
+}
+#q4{
+  text-decoration: underline;
+}
+#q5{
+  text-decoration: underline;
+}
 #q{
-    border: 2px solid black ;
-    width: 10%;
-    height: auto;
-    margin-left: 25px;
-    
+border: 2px solid black ;
+width: 10%;
+height: auto;
+margin-left: 25px;
+
 }
 input[type=radio] {
-    border: 0px;
-    width: 10%;
-    height: 2em;
+border: 0px;
+width: 7%;
+height: 2em;
+}
+#q_2{
+border: 2px solid black ;
+width: 17%;
+height: auto;
+margin-left: 25px;
+}
+#mc{
+  border: 2px solid  black ;
+  background-color: #3c3c3c3c;
+  text-align: center;
+}
+#sa{
+  text-decoration: underline;
+}
+#short{
+  font-size: 14pt;
+}
+#ta1{
+color: red;
 }
