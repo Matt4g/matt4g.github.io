@@ -2,7 +2,7 @@
 <head>
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
     <title>Homepage</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -12,60 +12,81 @@
         
 		<span id="center">
             <div id="wipdiv">
-                <br>
+                
                 <h1>The Way Of Kings Quiz</h1>
-                <br>
+                
             </div>
 		
         <br>
         <br>
-        <form id="quiz">
-             <label for="q1" id='q1'>   1.   What Bridge Was Kaladin Assigned To: </label><br> <br>
-            <div id="q"> 
+            <h3 id="mc">Multiple Choice</h1>
+        <form id="multi">
+             <label for="q1" id='q1'>   1.   What Bridge Was Kaladin Assigned To?: </label><br> <br>
+             <div id="ta1"></div>
+            <div id="q_2"> 
              <input type="radio" id="o1" name="q1"> A. Bridge 7 <br>
              <input type="radio" id="o2" name="q1"> B. Bridge 4 <br>
              <input type="radio" id="o3" name="q1"> C. Bridge 2 <br>
              <input type="radio" id="o4" name="q1"> D. Bridge 5 <br>
             </div>
+
               <br>
               <br>
-            <label for="q2" id='q2'>   2.   As a Truthless, What is The One Thing Szeth Can Not Be Commanded To Do: </label><br> <br>
-            <div id="q"> 
-                <input type="radio" id="o1" name="q1"> A. Kill Another Person <br>
-                <input type="radio" id="o2" name="q1"> B. Farm The Fields <br>
-                <input type="radio" id="o3" name="q1"> C. Take His Own Life <br>
-                <input type="radio" id="o4" name="q1"> D. Go Buy Grocieries <br>
+
+            <label for="q2" id='q2'>   2.   As a Truthless, What is The One Thing Szeth Can Not Be Commanded To Do?: </label><br> <br>
+            <div id="ta2"></div>
+            <div id="q_2"> 
+                <input type="radio" id="o1" name="q2"> A. Kill Another Person <br>
+                <input type="radio" id="o2" name="q2"> B. Farm The Fields <br>
+                <input type="radio" id="o3" name="q2"> C. Take His Own Life <br>
+                <input type="radio" id="o4" name="q2"> D. Go Buy Grocieries <br>
                </div>
+
                 <br>
                 <br>
-                <label for="q3" id='q3'>   3.  : </label><br> <br>
-               <div id="q"> 
-                    <input type="radio" id="o1" name="q1"> A. Bridge 7 <br>
-                    <input type="radio" id="o2" name="q1"> B. Bridge 4 <br>
-                    <input type="radio" id="o3" name="q1"> C. Bridge 2 <br>
-                    <input type="radio" id="o4" name="q1"> D. Bridge 5 <br>
+               
+                <label for="q3" id='q3'>   3.   Who is Dalinar?: </label><br> <br>
+                <div id="ta3"></div>
+                <div id="q_2"> 
+                    <input type="radio" id="o1" name="q3"> A. The King <br>
+                    <input type="radio" id="o2" name="q3"> B. The Kings Uncle <br>
+                    <input type="radio" id="o3" name="q3"> C. The Prince<br>
+                    <input type="radio" id="o4" name="q3"> D. A Soldier in The Kings Patrol <br>
                </div>
+               
+               <br>
                 <br>
-                <br>
-                <label for="q1" id='q1'>   1.   What Bridge Was Kaladin Assigned To: </label><br> <br>
-                <div id="q"> 
-                    <input type="radio" id="o1" name="q1"> A. Bridge 7 <br>
-                    <input type="radio" id="o2" name="q1"> B. Bridge 4 <br>
-                    <input type="radio" id="o3" name="q1"> C. Bridge 2 <br>
-                    <input type="radio" id="o4" name="q1"> D. Bridge 5 <br>
+               
+                <label for="q4" id='q4'>   4.   Why Are The King and His Party Out?: </label><br> <br>
+                <div id="ta4"></div>
+                <div id="q_2"> 
+                    <input type="radio" id="o1" name="q3"> A. Hunting <br>
+                    <input type="radio" id="o2" name="q3"> B. Going to Battle <br>
+                    <input type="radio" id="o3" name="q3"> C. Check on Soldiers <br>
+                    <input type="radio" id="o4" name="q3"> D. Write a Treaty <br>
                </div>
+               
+               <br>
                 <br>
-                <br>
-                <label for="q5" id='q5'>   1.   What Bridge Was Kaladin Assigned To: </label><br> <br>
-               <div id="q"> 
-                    <input type="radio" id="o1" name="q"> A. Bridge 7 <br>
-                    <input type="radio" id="o2" name="q1"> B. Bridge 4 <br>
-                    <input type="radio" id="o3" name="q1"> C. Bridge 2 <br>
-                    <input type="radio" id="o4" name="q1"> D. Bridge 5 <br>
+               
+                <label for="q5" id='q5'>   5.   Which of These Characters Does NOT Own a Sharblade?: </label><br> <br>
+                <div id="ta5"></div>
+                <div id="q_2"> 
+                    <input type="radio" id="o1" name="q3"> A. Elhokar <br>
+                    <input type="radio" id="o2" name="q3"> B. Adolin <br>
+                    <input type="radio" id="o3" name="q3"> C. Dalinar <br>
+                    <input type="radio" id="o4" name="q3"> D. Sadaes <br>
                </div>
+               <button id="submit">Submit Multiple Choice</button>
+            </form>
              <br>
-             <label for=""></label>
+             <br>
+             <form id="short">
+             <h3 id="mc">Short Answer Response</h1>
+                <label for="sa" id="sa">1.   Why Does Kaladin Learn The Names of The Other Bridge Crew Members?</label> <br><br>
+                <textarea name="sa1" id="sa1" cols="20" rows="5" placeholder="Answer Here..." style="width: 300px;height: 70px;"></textarea>
          </form>
+         
 	</span>
 	</div>
 	<br>
