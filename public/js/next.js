@@ -584,7 +584,7 @@ function draw() {
 let pieces = ['T','O','L','J','I','S', 'Z'].sort( () => .5 - Math.random() );
 
 function playerReset() {
-    document.getElementById('held').innerText = pieces[0];
+   // document.getElementById('held').innerText = pieces[0];
     player2.matrix = createPiece(pieces[1]);
     
     if(pieces.length == 2){
@@ -612,14 +612,13 @@ let shiftThing = document.getElementById('shift').innerText;
 let num = 0;
 let nextPieces;
 let pieces2;
-let lastpiece;
 
 function shiftPiece(){    
  
     if(shiftThing == "true"){   
-        lastpiece = pieces.shift();
-        document.getElementById('held').innerText = lastpiece;
-        console.log (lastpiece);
+        pieces.shift();
+       // document.getElementById('held').innerText = lastpiece;
+      //  console.log (lastpiece);
         
         num = 1;
         player2.matrix = createPiece(pieces[0]);

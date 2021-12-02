@@ -739,12 +739,7 @@ function message(){
     
 };
 
-function playerHold(){
-        
-        document.getElementById('help').innerText ="true";
-        setTimeout(() => {document.getElementById('help').innerText="false"; }, 10);
-        
-};
+
 //#endregion
 
 //#region Auto Drop and Speed Up
