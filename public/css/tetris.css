@@ -5,23 +5,18 @@ body {
     font-size: 2em;
     text-align: center;
 }
-#tetris {
-    margin-left: 100px;
-    border: solid .2em #fff;
+#tetris {   
+    margin-left: 22vh;
+    margin-right: auto;
+    border: solid .2em #3B3B3B;
     height: 86vh;
 }
 #Next {
-    border: solid .2em #fff;
-    margin-bottom: 30%;
-    height: auto;
-    width: auto;
+    border: solid .2em #3B3B3B;
+    margin-bottom: 60vh;
+    height: 20vh;    
+    
 }
-/*#hold {
-    border: solid .2em #fff;
-    margin-bottom: 30%;
-    height: auto;
-    width: auto;
-}*/
 #navigation{
     background-color:royalblue;
     width: 100%;
@@ -59,3 +54,6 @@ a{
     font-size: .1px;
     color:#202028 ;
 }
+body {
+    overflow: hidden; 
+  }
