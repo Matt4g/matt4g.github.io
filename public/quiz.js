@@ -4,7 +4,7 @@ let q3 = document.getElementsByName('q3');
 let q4 = document.getElementsByName('q4');
 let q5 = document.getElementsByName('q5');
 
-var submitAnswer = function() {
+function submitAnswer() {
 
     let q1 = document.getElementsByName('q1');
     var val1= "";
