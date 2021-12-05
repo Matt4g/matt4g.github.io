@@ -108,3 +108,14 @@ margin-left: 25px;
 #ta1{
 color: red;
 }
+#er{
+  font-size: 14pt;
+}
+
+#back{
+  width: auto;
+  height: 80px;
+  border: 2px solid royalblue;
+  background-color: #3c3c3c3c;
+  color: black;
+}
