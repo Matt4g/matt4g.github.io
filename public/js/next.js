@@ -1,17 +1,42 @@
-const canvas2 = document.getElementById('Next');
+/*
+    If you are reading this I am sorry
+
+    There are no other comments in this code
+
+    Good luck
+*/
+
+//#region Setting up PlayBoard
+const canvas2 = document.getElementById('next');
 const context2 = canvas2.getContext('2d');
 
 context2.scale(5, 5);
+//#endregion
 
-
+//#region Create Matrix
 function createMatrix(w, h) {
     const matrix = [];
     while (h--) {
         matrix.push(new Array(w).fill(0));
-    }
-    return matrix
-}
+    };
+    return matrix;
+};
 
+function drawMatrix(matrix, offset) {
+    matrix.forEach((row, y) => {
+        row.forEach((value, x) => {
+            if (value !== 0) {
+                context2.fillStyle = colors2[value];
+                context2.fillRect(x + offset.x,
+                                y + offset.y, 
+                                1, 1);
+            }
+        });
+    });
+};
+//#endregion
+
+//#region Piece Stuff
 function createPiece(type) {
     if (type === 'T') {
         return [
@@ -46,8 +71,9 @@ function createPiece(type) {
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 2, 2, 2, 2, 2, 2, 2, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         ];
-    } else if (type === 'O') {
-    return[
+    } 
+        else if (type === 'O') {
+             return[
             
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -80,7 +106,8 @@ function createPiece(type) {
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 4, 4, 4, 4, 4, 4, 4, 4, 5],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5],
     ];
-    } else if (type === 'L') {
+    } 
+    else if (type === 'L') {
         return [
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 6, 6, 6, 6, 6, 6, 6, 6, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -113,7 +140,8 @@ function createPiece(type) {
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 6, 6, 6, 6, 6, 6, 6, 6, 7],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7],
         ];
-    } else if (type === 'J') {
+    }
+     else if (type === 'J') {
         return [
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 8, 8, 8, 8, 8, 8, 8, 8, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -270,7 +298,7 @@ function createPiece(type) {
         ];
     }
     
-}
+};
 function ghostPiece(type) {
     if (type === 'T') {
         return [
@@ -305,9 +333,9 @@ function ghostPiece(type) {
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         ];
-    } else if (type === 'O') {
-    return[
-            
+    } 
+    else if (type === 'O') {
+        return[
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -341,7 +369,8 @@ function ghostPiece(type) {
             
     
     ];
-    } else if (type === 'L') {
+    } 
+    else if (type === 'L') {
         return [
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -374,7 +403,8 @@ function ghostPiece(type) {
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
         ];
-    } else if (type === 'J') {
+    } 
+    else if (type === 'J') {
         return [
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -536,10 +566,9 @@ function ghostPiece(type) {
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         ];
     }
-    
-}
-
-//FUCK
+};
+//#endregion
+  
    
 function draw() {
     context2.fillStyle = colors2[1];
@@ -548,80 +577,71 @@ function draw() {
     drawMatrix(arena2, {x: 0, y: 0});
     drawMatrix(player2.matrix, player2.pos);
    
-}
+};
 
-function drawMatrix(matrix, offset) {
-    matrix.forEach((row, y) => {
-        row.forEach((value, x) => {
-            if (value !== 0) {
-                context2.fillStyle = colors2[value];
-                context2.fillRect(x + offset.x,
-                                y + offset.y, 
-                                1, 1);
-            }
-        });
-    });
-}
+//#region Creating and Changing Pieces
 
 let pieces = ['T','O','L','J','I','S', 'Z'].sort( () => .5 - Math.random() );
 
 function playerReset() {
-
+   // document.getElementById('held').innerText = pieces[0];
     player2.matrix = createPiece(pieces[1]);
     
     if(pieces.length == 2){
         
-        nextPieces = (['T','O','L','J','I','S', 'Z'].sort(() => .5 - Math.random()));
+        nextPieces = ['T','O','L','J','I','S', 'Z'];
         pieces2 = pieces.concat(nextPieces);
         pieces = pieces2;
-          player2.matrix = createPiece(pieces[0]);
-          
-          
-    }
+    };
 
     next();
-    setTimeout(() => {pieces.shift();console.log("shift");}, 10);
+    setTimeout(() => {pieces.shift();}, 1);
     
     player2.pos.y = -1;
     player2.pos.x = (arena2[0].length / 2 | 0) -
                     (player2.matrix[0].length / 2 | 0);    
-}
-//function ghostPiece(){
-  //  let pieces = ['T','O','L','J','I','S', 'Z'].sort( () => .5 - Math.random() );
-//}  
+};
+
 
 
 function next(){
     document.getElementById('piece').innerText = pieces;
-}
+};
 
-let shiftThing = document.getElementById('shift').innerText
+let shiftThing = document.getElementById('shift').innerText;
 let num = 0;
 let nextPieces;
 let pieces2;
 
 function shiftPiece(){    
-    //removes pieces 
+ 
     if(shiftThing == "true"){   
         pieces.shift();
-        console.log("shift")
+       // document.getElementById('held').innerText = lastpiece;
+      //  console.log (lastpiece);
+        
         num = 1;
         player2.matrix = createPiece(pieces[0]);
+
     }
     else if(shiftThing == "true" && num !=0){
         num = 0;
     }   
-    //creates new pieces and adds them to the original array
+   
     if(pieces.length == 2){
       nextPieces = (['T','O','L','J','I','S', 'Z'].sort(() => .5 - Math.random()));
       pieces2 = pieces.concat(nextPieces);
        pieces = pieces2;
        player2.matrix = createPiece(pieces[0]);
         
-        
     }
 }
+function playerHold(){
 
+};
+//#endregion
+
+//#region Update and Colors
 let lastTime2 = 0;
 
 function update(time = 0) {
@@ -632,11 +652,7 @@ function update(time = 0) {
     shiftPiece();
     shiftThing = document.getElementById('shift').innerText
     next();
-    
-    
-
-    
-}
+};
 
 const colors2 = [
     null, 
@@ -656,6 +672,7 @@ const colors2 = [
     'red',
     'darkred',
 ];
+//#endregion
 
 const arena2 = createMatrix(40, 40);
 
@@ -663,6 +680,7 @@ const player2 = {
     pos: {x: 0, y: 0},
     matrix: null,
     score: 0,
-}
+};
+
 playerReset();
 update();
