@@ -1,24 +1,39 @@
 <html>
-    <head>        
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <head>
         <title>Tetris</title>
-        <link rel="stylesheet" href="css/tetris.css">
-    </head>
-    <body>
-
+        <style>
+            body {
+                background-color: #202028;
+                color: white;
+                font-family: sans-serif;
+                font-size: 2em;
+                text-align: center;
+                text-decoration: none;
+            }
+            #tetris {
+                border: solid .2em #fff;
+                height: 90vh;
+            }
+            #new {
+                border: solid .2em #fff;
+               width: 200px;
+               height: 30px;
+            }
+            body {
+                overflow: hidden; 
+            }
+            a{
+                color: white;
+            }
+            
+           
+            </style>
+        </head>
+        <body>
         <div id="score"></div>
-        <div id="piece"></div>
-        <div id="shift"></div>
-        <!--<div id="help"></div>
-        <div id="held"></div>-->
-    
-        <!--<canvas id="hold" width=" 200px" height="200px"></canvas>-->
-        <canvas id="tetris" width="220" height="400"></canvas>
-        <canvas id="next" width="200px" height="200px"></canvas>
-    
-       <!--<script type="module" src="js/hold.js"></script>-->
-       <script type="module" src="js/next.js"></script>
-        <script type="module"  src="js/app.js"></script>
+        <canvas id="tetris" width="240" height="400"></canvas>
+        <a href="tetris.html"><div id="new">Click Here</canvas></a>
         
+        <script src="tetris.js"></script>
     </body>
 </html>
