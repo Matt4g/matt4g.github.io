@@ -611,13 +611,9 @@ function draw() {
     context.fillStyle = colors[1];
     context.fillRect(0, 0, canvas.width, canvas.height); 
    
-    
-
     drawMatrix(arena, {x: 0, y: 0});
     drawMatrix(player.matrix, player.pos);
 }
-
-
 
 function merge(arena, player) {
     player.matrix.forEach((row, y) =>{
@@ -627,7 +623,6 @@ function merge(arena, player) {
             }
         });
     });
-    
 
 }
 //#endregion
@@ -646,6 +641,7 @@ function playerDrop() {
         }
         dropCounter = 0
 }
+
 function playerDropHard() {
     while (!collide(arena, player)) {
        player.pos.y++;;
@@ -660,7 +656,6 @@ function playerDropHard() {
     updateScore();
     dropCounter = 0;
 };
-
 
 function playerMove(dir) {
     player.pos.x += dir;
@@ -829,7 +824,7 @@ document.addEventListener('keydown', event => {''
         playerDrop();
     }
     if (event.keyCode === 90) {
-        playerRotate(-1);
+        playerRotate(-10);
     }
     if (event.keyCode === 38) {
         playerRotate(1);
@@ -837,10 +832,7 @@ document.addEventListener('keydown', event => {''
     if (event.keyCode === 32){
         playerDropHard(1);
     }
-    if(event.keyCode ===  67){
-            playerHold();
-
-    }
+    
 });
 
 const times = [];

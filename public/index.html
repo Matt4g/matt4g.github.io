@@ -13,27 +13,43 @@
             }
             #tetris {
                 border: solid .2em #fff;
-                height: 90vh;
+                height: 85vh;
             }
             #new {
+                text-align: center;
+                font-size: 20pt;
                 border: solid .2em #fff;
-               width: 200px;
-               height: 30px;
+               width: 20vh;
+               height: 5vh;
+               margin-top: auto;
+               margin-bottom: auto;
             }
+            
             body {
                 overflow: hidden; 
             }
             a{
                 color: white;
+                text-decoration: none;
             }
-            
+           .tetris{
+               padding-left: 61vh;
+               width: 80vh;
+           }
+            #newT{
+                width: 5vh;
+            }
            
             </style>
         </head>
         <body>
         <div id="score"></div>
-        <canvas id="tetris" width="240" height="400"></canvas>
-        <a href="tetris.html"><div id="new">Click Here</canvas></a>
+        <div>
+      <div id="newT">
+        <a href="tetris.html"><div id="new">Click Here</canvas></a></div> 
+        <div class="tetris">
+        <canvas id="tetris" width="240" height="400"></canvas></div>
+        </div>
         
         <script src="tetris.js"></script>
     </body>
