@@ -39,6 +39,7 @@ function drawMatrix(matrix, offset) {
 
 //#endregion
 
+//#region piece stuff
 function createPiece(type) {
     if (type === 'T') {
         return [
@@ -298,7 +299,7 @@ function createPiece(type) {
     }
     
 }
-
+//#endregion
 function draw() {
     context3.fillStyle = colors3[1];
     context3.fillRect(0, 0, canvas3.width, canvas3.height);
@@ -307,6 +308,7 @@ function draw() {
     drawMatrix(player.matrix, player.pos);
 };
 
+//#endregion Player Hold that STILL doesn't work
 let pieces = document.getElementById('held').innerText;
 function playerReset() {
 
@@ -326,6 +328,7 @@ function playerHold(){
     };
 
 
+//#region Player Movement why is this in here?????
 function playerRotate(dir) {
     const pos = player.pos.x;
     let offset = 1;
@@ -362,7 +365,9 @@ function rotate(matrix, dir) {
     }
 ;
 }
+//#endregion
 
+//#region Updates and Colors
 let dropCounter = 0;
 let dropInterval = 400;
 
@@ -398,6 +403,7 @@ const colors3 = [
 
 const arena3 = createMatrix(40, 40);
 
+//#endregion
 
 const player = {
     pos: {x: 0, y: 0},
