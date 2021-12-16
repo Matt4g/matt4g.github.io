@@ -2,10 +2,10 @@
     If you are reading this I am sorry
 
     There are no other comments in this code
+    Enjoy my regions which is the closest to comments I made
 
     Good luck
 */
-
 //#region Setting up PlayBoard
 const canvas2 = document.getElementById('next');
 const context2 = canvas2.getContext('2d');
