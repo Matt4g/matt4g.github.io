@@ -413,5 +413,7 @@ const player = {
     score: 0,
 }
 
+//#region starts everything up
 playerReset();
 update();
+//#endregion        

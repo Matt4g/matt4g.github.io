@@ -852,8 +852,10 @@ function refreshLoop() {
 };
 //#endregion
 
+//#region starts everything up
 refreshLoop();
 playerReset();
 message();
 updateScore();
 update();
+//#endregion
