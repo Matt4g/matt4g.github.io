@@ -403,9 +403,9 @@ const colors3 = [
     'darkred',
 ];
 
-const arena3 = createMatrix(40, 40);
-
 //#endregion
+
+const arena3 = createMatrix(40, 40);
 
 const player = {
     pos: {x: 0, y: 0},
