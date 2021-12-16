@@ -300,6 +300,7 @@ function createPiece(type) {
     
 }
 //#endregion
+
 function draw() {
     context3.fillStyle = colors3[1];
     context3.fillRect(0, 0, canvas3.width, canvas3.height);
@@ -308,7 +309,8 @@ function draw() {
     drawMatrix(player.matrix, player.pos);
 };
 
-//#endregion Player Hold that STILL doesn't work
+//#region Player Hold that STILL doesn't work
+
 let pieces = document.getElementById('held').innerText;
 function playerReset() {
 
@@ -327,7 +329,7 @@ function playerHold(){
    console.log(hold)
     };
 
-
+//#endregion
 //#region Player Movement why is this in here?????
 function playerRotate(dir) {
     const pos = player.pos.x;
