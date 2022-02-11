@@ -47,14 +47,21 @@ a{
     font-size: smaller
 }
 
-#piece{
+/*#piece{
     font-size: .1px;
     color:#202028 ;
 }
 #shift{
     font-size: .1px;
     color:#202028 ;
-}
+}*/
 body {
     overflow: hidden; 
   }
+
+#hold {
+    border: solid .2em #3B3B3B;
+    margin-bottom: 35vh;
+    height: auto;
+    width: auto;
+}

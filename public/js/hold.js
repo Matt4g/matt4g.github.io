@@ -25,16 +25,16 @@ function createMatrix(w, h) {
 }
 
 function drawMatrix(matrix, offset) {
-   /* matrix.forEach((row, y) => {
-        row.forEach((value, x) => {*/
+    matrix.forEach((row, y) => {
+        row.forEach((value, x) => {
             if (value !== 0) {
                 context3.fillStyle = colors3[value];
                 context3.fillRect(x + offset.x,
                                 y + offset.y, 
                                 1, 1);
             }
-       //});
- //  });
+       });
+  });
 };
 
 //#endregion
@@ -316,11 +316,11 @@ function playerReset() {
 
     pieces = document.getElementById('held').innerText;
     player.matrix = createPiece(pieces[0]);
-    /*console.log(pieces);
+    console.log(pieces);
         player.pos.y = 0;
         player.pos.x = (arena3[0].length / 2 | 0) -
                        (player.matrix[0].length / 2 | 0);
-                       playerHold();*/
+                       playerHold();
     };
 
     let hold;
@@ -414,6 +414,6 @@ const player = {
 }
 
 //#region starts everything up
-playerReset();
+//playerReset();
 update();
 //#endregion        

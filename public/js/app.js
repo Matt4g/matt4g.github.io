@@ -825,16 +825,18 @@ document.addEventListener('keydown', event => {''
         playerDrop();
     }
     if (event.keyCode === 90) {
-        playerRotate(-10);
+        playerRotate(-1);
     }
     if (event.keyCode === 38) {
         playerRotate(1);
     }
+   
     if (event.keyCode === 32){
         playerDropHard(1);
     }
     
 });
+
 
 const times = [];
 let fps;
@@ -844,10 +846,12 @@ function refreshLoop() {
     const now = performance.now();
     while (times.length > 0 && times[0] <= now - 1000) {
       times.shift();
-    };
+    }; 
+    
     times.push(now);
     fps = times.length;
     refreshLoop();
+    
   });
 };
 //#endregion

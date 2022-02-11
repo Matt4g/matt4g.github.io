@@ -11,6 +11,8 @@ const canvas2 = document.getElementById('next');
 const context2 = canvas2.getContext('2d');
 
 context2.scale(5, 5);
+
+
 //#endregion
 
 //#region Create Matrix
@@ -603,7 +605,6 @@ function playerReset() {
 };
 
 
-
 function next(){
     document.getElementById('piece').innerText = pieces;
 };
@@ -652,6 +653,7 @@ function update(time = 0) {
     shiftPiece();
     shiftThing = document.getElementById('shift').innerText
     next();
+    
 };
 
 const colors2 = [
@@ -673,7 +675,22 @@ const colors2 = [
     'darkred',
 ];
 //#endregion
+const times = [];
+let fps;
 
+function refreshLoop() {
+  window.requestAnimationFrame(() => {
+    const now = performance.now();
+    while (times.length > 0 && times[0] <= now - 1000) {
+      times.shift();
+    }; 
+  
+    times.push(now);
+    fps = times.length;
+    refreshLoop();
+   
+  });
+};
 const arena2 = createMatrix(40, 40);
 
 const player2 = {
@@ -685,4 +702,5 @@ const player2 = {
 //#region starts everything up
 playerReset();
 update();
+refreshLoop();
 //#endregion
