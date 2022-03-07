@@ -15,6 +15,7 @@ context2.scale(5, 5);
 
 //#endregion
 
+
 //#region Create Matrix
 function createMatrix(w, h) {
     const matrix = [];
