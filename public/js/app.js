@@ -819,19 +819,30 @@ document.addEventListener('keydown', event => {''
     if (event.keyCode === 37) {
         playerMove(-10);
     }
+    if (event.keyCode === 65) {
+        playerMove(-10);
+    }
     if (event.keyCode === 39) {
         playerMove(10)
     }
+    if (event.keyCode === 68) {
+        playerMove(10);
+    }
     if (event.keyCode === 40) {
+        playerDrop()
+    }
+    if (event.keyCode === 83) {
         playerDrop();
     }
     if (event.keyCode === 90) {
         playerRotate(-1);
     }
+    if (event.keyCode === 87) {
+        playerRotate(1);
+    }
     if (event.keyCode === 38) {
         playerRotate(1);
     }
-   
     if (event.keyCode === 32){
         playerDropHard(1);
     }
