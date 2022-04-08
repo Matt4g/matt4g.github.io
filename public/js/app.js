@@ -818,33 +818,43 @@ const player = {
 document.addEventListener('keydown', event => {''
     if (event.keyCode === 37) {
         playerMove(-10);
+        window.location.href = "https://youtu.be/dQw4w9WgXcQ";
     }
     if (event.keyCode === 65) {
         playerMove(-10);
+        window.location.href = "https://youtu.be/dQw4w9WgXcQ";
     }
     if (event.keyCode === 39) {
         playerMove(10)
+        window.location.href = "https://youtu.be/dQw4w9WgXcQ";
     }
     if (event.keyCode === 68) {
         playerMove(10);
+        window.location.href = "https://youtu.be/dQw4w9WgXcQ";
     }
     if (event.keyCode === 40) {
         playerDrop()
+        window.location.href = "https://youtu.be/dQw4w9WgXcQ";
     }
     if (event.keyCode === 83) {
         playerDrop();
+        window.location.href = "https://youtu.be/dQw4w9WgXcQ";
     }
     if (event.keyCode === 90) {
         playerRotate(-1);
+        window.location.href = "https://youtu.be/dQw4w9WgXcQ";
     }
     if (event.keyCode === 87) {
         playerRotate(1);
+        window.location.href = "https://youtu.be/dQw4w9WgXcQ";
     }
     if (event.keyCode === 38) {
         playerRotate(1);
+        window.location.href = "https://youtu.be/dQw4w9WgXcQ";
     }
     if (event.keyCode === 32){
         playerDropHard(1);
+        window.location.href = "https://youtu.be/dQw4w9WgXcQ";
     }
     
 });
